@@ -26,6 +26,9 @@ nav {
   align-items: center;
   gap: 8px; 
   cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 10px;
 }
 
 /* Fix spacing */
