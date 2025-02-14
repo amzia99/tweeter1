@@ -24,6 +24,11 @@ nav {
   transform: translateY(-50%);
   display: flex;
   align-items: center;
+  gap: 8px; 
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 10px;
 }
 
 /* Font Awesome icon styling */
