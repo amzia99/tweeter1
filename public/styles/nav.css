@@ -1,0 +1,38 @@
+/* Code for nav*/
+/* Navigation Bar */
+nav {
+  height: 120px; 
+  width: 100vw; 
+  background-color: #4056A1; 
+  color: white; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 1.5em; 
+}
+
+/* Tweeter Title */
+nav .title {
+  font-family: 'Bungee', sans-serif; 
+  font-size: 2em; 
+  font-weight: bold;
+}
+
+/* for write a new tweet section */
+nav .new-tweet {
+  text-align: right;
+}
+
+nav .new-tweet span {
+  font-family: 'Source Sans 3', sans-serif; 
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Font Awesome icon styling */
+nav .new-tweet i {
+  display: block;
+  color: red; 
+  font-size: 24px; 
+  margin-top: 5px;
+}
