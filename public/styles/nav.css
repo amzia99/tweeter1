@@ -31,13 +31,6 @@ nav {
   padding: 10px;
 }
 
-/* Fix spacing */
-.new-tweet span {
-  font-family: 'Source Sans 3', sans-serif;
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
 /* Font Awesome icon styling */
 .new-tweet i {
   color: red;
@@ -48,6 +41,13 @@ nav {
 /* Hover effect */
 .new-tweet:hover i {
   transform: translateY(3px);
+}
+
+/* Fix spacing */
+.new-tweet span {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 /* Tweeter Title */
