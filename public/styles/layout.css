@@ -53,6 +53,16 @@ nav {
   padding: 20px;
 }
 
+/*styling for avatar image*/
+.profile img {
+  width: 80px; 
+  height: 80px; 
+  border-radius: 50%; 
+  object-fit: cover; 
+  border: 3px solid #ffffff; 
+}
+
+
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
