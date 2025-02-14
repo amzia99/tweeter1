@@ -1,14 +1,36 @@
 /* Code for nav*/
 /* Navigation Bar */
 nav {
-  height: 120px; 
-  width: 100vw; 
-  background-color: #4056A1; 
-  color: white; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  padding: 0 1.5em; 
+  height: 120px;
+  width: 100vw;
+  background-color: #4056A1;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5em;
+  position: relative;
+}
+
+/* Dropdown icon positioning */
+.new-tweet {
+  position: absolute;
+  right: 1.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.new-tweet span {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.new-tweet i {
+  color: red;
+  font-size: 20px;
 }
 
 /* Tweeter Title */
