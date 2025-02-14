@@ -1,67 +1,106 @@
-/* new tweet form styles */
-.new-tweet {
-  width: 100%;
+/* ✅ Ensure the "Compose Tweet" section is centered */
+.tweet-form-container {
+  width: 90%;
   max-width: 600px;
+  margin: 20px auto; /* ✅ Centering form */
+  padding-bottom: 10px;
   background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
+}
+
+/* ✅ Style the form */
+.tweet-form-container form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
+  width: 100%;
+  padding: 10px 0;
 }
 
-/* label styling */
-.new-tweet label {
-  display: block;
-  font-size: 18px;
+/* ✅ Label styling */
+.tweet-form-container label {
+  font-size: 1.2rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  color: #545149;
+  display: block;
+  margin-bottom: 8px;
 }
 
-/* tweet input box */
-.new-tweet textarea {
+/* ✅ Make the textarea span the width of the form */
+.tweet-form-container textarea {
   width: 100%;
   height: 80px;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
+  border: none;
+  border-bottom: 3px solid #545149;
+  background: transparent;
+  outline: none;
   resize: none;
 }
 
-/* tweet controls button and counter */
+/* ✅ Ensure tweet form controls (button + counter) are aligned */
 .tweet-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
-  margin-top: 10px;
+  padding-top: 10px;
 }
 
-/* button styling */
+/* ✅ Styling the button */
 .tweet-controls button {
   background-color: #4056A1;
   color: white;
-  border: none;
-  padding: 10px 20px;
-  font-size: 16px;
   font-weight: bold;
-  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
-/* button hover effect */
+/* ✅ Button hover effect */
 .tweet-controls button:hover {
-  background-color: #394b93;
+  background-color: #31447c;
 }
 
-/* counter styling */
-.counter {
+/* ✅ Styling the counter */
+.tweet-controls .counter {
   font-size: 18px;
   font-weight: bold;
   color: #545149;
+}
+
+/* ✅ Navbar tweet button - Keep separate from form styling */
+.nav-tweet {
+  position: absolute;
+  right: 1.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 10px;
+}
+
+/* ✅ Navbar tweet button font styling */
+.nav-tweet span {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* ✅ Navbar tweet button hover effect */
+.nav-tweet i {
+  color: red;
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.nav-tweet:hover i {
+  transform: translateY(3px);
 }
