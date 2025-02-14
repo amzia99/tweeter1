@@ -108,6 +108,27 @@ nav {
   color: #545149;
 }
 
+/*avatar position styling*/
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.profile img {
+  width: 80px;
+  height: 80px;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  object-fit: cover;
+}
+
+.profile h2 {
+  font-family: 'Bungee', sans-serif;
+  font-size: 24px;
+}
+
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
