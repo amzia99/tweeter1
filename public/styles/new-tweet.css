@@ -1,8 +1,8 @@
-/* ✅ Ensure the "Compose Tweet" section is centered */
+/* Compose tweet section centered */
 .tweet-form-container {
   width: 90%;
   max-width: 600px;
-  margin: 20px auto; /* ✅ Centering form */
+  margin: 20px auto; 
   padding-bottom: 10px;
   background: transparent;
   border-radius: 8px;
@@ -10,7 +10,7 @@
   padding: 20px;
 }
 
-/* ✅ Style the form */
+/* Form styling */
 .tweet-form-container form {
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@
   padding: 10px 0;
 }
 
-/* ✅ Label styling */
+/* Label styling */
 .tweet-form-container label {
   font-size: 1.2rem;
   font-weight: bold;
@@ -27,7 +27,7 @@
   margin-bottom: 8px;
 }
 
-/* ✅ Make the textarea span the width of the form */
+/* textarea to span form width */
 .tweet-form-container textarea {
   width: 100%;
   height: 40px;
@@ -42,12 +42,12 @@
   margin-bottom: 2px;
 }
 
-/* Remove the default textarea border */
+/* Remove the textarea border */
 .new-tweet textarea:focus {
-  border-bottom: 3px solid #000; /* Darker border on focus */
+  border-bottom: 3px solid #000; 
 }
 
-/* ✅ Ensure tweet form controls (button + counter) are aligned */
+/* tweet form control buttons aligned */
 .tweet-controls {
   display: flex;
   justify-content: space-between;
@@ -55,7 +55,7 @@
   padding-top: 10px;
 }
 
-/* ✅ Styling the button */
+/* styling button */
 .tweet-controls button {
   background-color: #4056A1;
   color: white;
@@ -68,12 +68,12 @@
   font-family: 'Bungee', sans-serif;
 }
 
-/* ✅ Button hover effect */
+/* Button hover effect */
 .tweet-controls button:hover {
   background-color: #31447c;
 }
 
-/* ✅ Styling the counter */
+/* Styling the counter */
 .tweet-controls .counter {
   font-size: 18px;
   font-weight: bold;
@@ -81,7 +81,7 @@
   font-family: 'Bungee', sans-serif;
 }
 
-/* ✅ Navbar tweet button - Keep separate from form styling */
+/* Navbar tweet button - seperate styling */
 .nav-tweet {
   position: absolute;
   right: 1.5em;
@@ -96,14 +96,14 @@
   padding: 10px;
 }
 
-/* ✅ Navbar tweet button font styling */
+/* navbar tweet button styling */
 .nav-tweet span {
   font-family: 'Source Sans 3', sans-serif;
   font-weight: bold;
   font-size: 1.2em;
 }
 
-/* ✅ Navbar tweet button hover effect */
+/* Navbar tweet button hover effect */
 .nav-tweet i {
   color: red;
   font-size: 24px;

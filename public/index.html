@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="styles/header.css" type="text/css" />
     <link rel="stylesheet" href="styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="styles/tweets.css" type="text/css" />
-    <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" /> <!-- ✅ Added styling for new tweet form -->
+    <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" /> 
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -34,7 +34,7 @@
     <!-- Navbar at the top -->
     <nav>
       <span class="title">TWEETER</span>
-      <div class="nav-tweet">  <!-- ✅ Renamed this class to avoid conflicts -->
+      <div class="nav-tweet">  
         <span class="bold-text">Write</span> <span class="light-text">a new tweet</span>
         <i class="fa-solid fa-angles-down"></i> <!-- Icon -->
       </div>
@@ -50,14 +50,14 @@
       </div>
     </header>  
 
-    <!-- ✅ Moved `main` correctly and ensured all content is inside it -->
+    
     <main class="container">
 
-      <!-- ✅ New Tweet Form -->
+      
       <div class="tweet-wrapper">
-        <section class="tweet-form-container">  <!-- ✅ Changed class name -->
-          <form id="tweet-form" action="/api/tweets" method="POST">  <!-- ✅ Added `id="tweet-form"` -->
-            <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea> <!-- ✅ Correct placeholder -->
+        <section class="tweet-form-container">  
+          <form id="tweet-form" action="/api/tweets" method="POST">  
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea> 
             <div class="tweet-controls">
               <button type="submit">Tweet</button>
               <output name="counter" class="counter" for="tweet-text">140</output>
@@ -66,12 +66,12 @@
         </section>
       </div>
 
-      <!-- ✅ Ensured Tweets container is inside `main` -->
+      
       <section class="tweets-container">
         <!-- Tweets inserted here -->
       </section>
 
-    </main>  <!-- ✅ Properly closed `main` -->
+    </main>  
 
     <!-- Footer -->
     <footer>

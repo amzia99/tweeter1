@@ -94,7 +94,7 @@ body {
 
 .tweet-controls {
   display: flex;
-  justify-content: space-between; /* ✅ Ensures left-aligned button and right-aligned counter */
+  justify-content: space-between; 
   align-items: center;
   padding-top: 10px;
 }
