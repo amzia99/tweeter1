@@ -34,6 +34,15 @@ body {
   min-height: 80vh;
 }
 
+/* tweet wrapper */
+.tweet-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
 /* Ensure new tweet box is centered */
 .new-tweet {
   width: 100%;
