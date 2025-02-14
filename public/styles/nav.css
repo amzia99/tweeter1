@@ -25,10 +25,19 @@ nav {
   display: flex;
   align-items: center;
   gap: 5px; 
+  font-size: 1.1rem;
   cursor: pointer;
   background: transparent;
   border: none;
   padding: 10px;
+}
+
+.bold-text {
+  font-weight: 700; /* Bold */
+}
+
+.light-text {
+  font-weight: 400; /* Normal */
 }
 
 /* Font Awesome icon styling */
