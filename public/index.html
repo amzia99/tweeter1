@@ -16,6 +16,8 @@
 
     <!-- App CSS -->
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="styles/nav.css" type="text/css" /> 
+    <link rel="stylesheet" href="styles/tweets.css" type="text/css" /> 
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -25,14 +27,45 @@
   </head>
 
   <body>
-    <!-- Top Navigation Bar -->
-    <nav>
-      <span class="title">Tweeter</span>
-    </nav>
+ <!-- Top Navigation Bar -->
+ <nav>
+  <span class="title">Tweeter</span>
+</nav>
 
-    <!-- Main Content Container -->
-    <main class="container">
-      <!-- Content -->
-    </main>
-  </body>
+<!-- user profile -->
+<header>
+  <div class="profile">
+    <img src="images/profile-avatar.png" alt="User Avatar"> <!-- placeholder profile image -->
+    <h2>Abdullah Zia</h2> <!-- Placeholder name -->
+  </div>
+</header>
+
+<!-- Main Content Container -->
+<main class="container">
+  
+  <!-- New Tweet Form -->
+  <section class="new-tweet">
+    <h2>Write a new tweet</h2>
+    <form>
+      <textarea name="tweet-text" placeholder="What’s happening?" required></textarea> 
+      <div class="tweet-controls">
+        <button type="submit">Tweet</button> 
+        <span class="counter">140</span> 
+      </div>
+    </form>
+  </section>
+
+  <!-- Tweets Container -->
+  <section class="tweets-container">
+    <!-- Tweets inserted here -->
+  </section>
+
+</main>
+
+<!-- footer -->
+<footer>
+  <p>© 2025 Tweeter. All rights reserved.</p>
+</footer>
+
+</body>
 </html>
