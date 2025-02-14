@@ -8,6 +8,13 @@
   align-items: center;
   background-color: #f4a261;
   position: relative;
+
+ /* Background styling */
+ background-color: #004f8c;
+ background-image: url("https://www.transparenttextures.com/patterns/bedge-grunge.png");
+ background-size: auto; 
+ background-repeat: repeat; 
+ background-position: center; 
 }
 
 /* Centered Avatar */
