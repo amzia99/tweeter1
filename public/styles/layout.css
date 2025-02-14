@@ -62,6 +62,52 @@ nav {
   background-color: #fff; 
 }
 
+/*styling for new tweetbox*/
+.new-tweet {
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.new-tweet textarea {
+  width: 100%;
+  height: 80px;
+  font-size: 18px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.tweet-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.tweet-controls button {
+  background-color: #ffcc00;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.tweet-controls button:hover {
+  background-color: #e6b800;
+}
+
+.counter {
+  font-size: 16px;
+  color: #545149;
+}
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
