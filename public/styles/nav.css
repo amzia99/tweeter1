@@ -24,7 +24,7 @@ nav {
   transform: translateY(-50%);
   display: flex;
   align-items: center;
-  gap: 8px; 
+  gap: 5px; 
   cursor: pointer;
   background: transparent;
   border: none;
@@ -34,9 +34,10 @@ nav {
 /* Font Awesome icon styling */
 .new-tweet i {
   color: red;
-  font-size: 24px; 
+  font-size: 20px; 
   transition: transform 0.3s ease;
 }
+
 
 /* Hover effect */
 .new-tweet:hover i {
@@ -45,9 +46,10 @@ nav {
 
 /* Fix spacing */
 .new-tweet span {
-  font-family: 'Source Sans 3', sans-serif;
-  font-weight: bold;
+  font-family: 'Source Sans 3', sans-serif; 
+  font-weight: 700; 
   font-size: 1.2em;
+  color: white;
 }
 
 /* Tweeter Title */

@@ -30,7 +30,9 @@ body {
   align-items: center;
   justify-content: center; 
   min-height: calc(100vh - 160px);
-  width: 100%;
+  width: 90%; 
+  max-width: 1200px;  
+  margin: 0 auto;  
   padding: 20px;
 }
 
@@ -41,7 +43,7 @@ body {
   align-items: center;
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 40px auto; 
 }
 
 /* Centering tweet box */
@@ -58,6 +60,7 @@ body {
   align-items: center;
   justify-content: center;
   margin-top: 20px; 
+  position: relative;  
 }
 
 /* Make textarea width consistent */
@@ -68,12 +71,14 @@ body {
   padding: 10px;
   border: 2px solid #ccc;
   border-radius: 5px;
+  resize: none; 
 }
 
 .tweet-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;  
   margin-top: 10px;
 }
 
@@ -86,6 +91,8 @@ body {
   font-weight: bold;
   cursor: pointer;
   border-radius: 5px;
+  width: auto;  
+  min-width: 80px;  
 }
 
 /* Main container centered */
@@ -94,6 +101,9 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 90%;  
+  max-width: 1200px; 
+  margin: 0 auto; 
   min-height: calc(100vh - 160px); 
   padding: 20px;
 }
@@ -106,16 +116,19 @@ main {
 .counter {
   font-size: 16px;
   color: #545149;
+  text-align: right;
+  min-width: 50px;
 }
 
 /* Centered profile */
 .profile {
   display: flex;
+  flex-direction: column;  
   align-items: center;
   gap: 15px;
   padding: 20px;
-  justify-content: flex-start;
   width: 100%;
+  text-align: center;
 }
 
 /* Ensure avatar hexagon shape */
@@ -135,6 +148,7 @@ footer {
   width: 100%;
   background: #ffcc00;
   font-size: 14px;
+  z-index: 1000;  
 }
 
 
