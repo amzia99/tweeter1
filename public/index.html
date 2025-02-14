@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tweeter - Home Page</title>
 
-    <!-- CSS for cross browser consistency -->
+    <!-- CSS for cross-browser consistency -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
@@ -28,7 +28,7 @@
   </head>
 
   <body>
-    <!-- Nav Bar Structure -->
+    <!-- Navbar at the top -->
     <nav>
       <span class="title">TWEETER</span>
       <div class="new-tweet">
@@ -37,41 +37,38 @@
       </div>
     </nav>
 
-
-<!-- user profile -->
-<header>
-  <div class="profile">
-    <img src="images/my-avatar.png" alt="My Avatar"> <!-- avatar image -->
-    <h2>Abdullah Zia</h2> <!-- custom name -->
-  </div>
-</header>
-
-<!-- Main Content Container -->
-<main class="container">
-  
-  <!-- New Tweet Form -->
-  <section class="new-tweet">
-    <h2>Write a new tweet</h2>
-    <form>
-      <textarea name="tweet-text" placeholder="What’s happening?" required></textarea> 
-      <div class="tweet-controls">
-        <button type="submit">Tweet</button> 
-        <span class="counter">140</span> 
+    <!-- Center user profile -->
+    <header>
+      <div class="profile">
+        <img src="images/my-avatar.png" alt="My Avatar"> <!-- avatar image -->
+        <h2>Abdullah Zia</h2> <!-- custom name -->
       </div>
-    </form>
-  </section>
+    </header>
 
-  <!-- Tweets Container -->
-  <section class="tweets-container">
-    <!-- Tweets inserted here -->
-  </section>
+    <!-- Center the main container -->
+    <main class="container">
+      <!-- New Tweet Form -->
+      <section class="new-tweet">
+        <h2>Write a new tweet</h2>
+        <form>
+          <textarea name="tweet-text" placeholder="What’s happening?" required></textarea> 
+          <div class="tweet-controls">
+            <button type="submit">Tweet</button> 
+            <span class="counter">140</span> 
+          </div>
+        </form>
+      </section>
 
-</main>
+      <!-- Tweets Container -->
+      <section class="tweets-container">
+        <!-- Tweets inserted here -->
+      </section>
+    </main>
 
-<!-- footer -->
-<footer>
-  <p>© 2025 Tweeter. All rights reserved.</p>
-</footer>
+    <!-- Footer now remains at the bottom  -->
+    <footer>
+      <p>© 2025 Tweeter. All rights reserved.</p>
+    </footer>
 
-</body>
+  </body>
 </html>
