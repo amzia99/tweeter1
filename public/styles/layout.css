@@ -87,7 +87,7 @@ body {
   align-items: center;
   gap: 15px;
   padding: 20px;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
 }
 
