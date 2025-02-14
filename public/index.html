@@ -55,10 +55,8 @@
       <!-- ✅ New Tweet Form -->
       <div class="tweet-wrapper">
         <section class="tweet-form-container">  <!-- ✅ Changed class name -->
-          <h2>Compose Tweet</h2>
           <form id="tweet-form" action="/api/tweets" method="POST">  <!-- ✅ Added `id="tweet-form"` -->
-            <label for="tweet-text">What are you humming about?</label>
-            <textarea name="text" id="tweet-text" required></textarea>
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea> <!-- ✅ Correct placeholder -->
             <div class="tweet-controls">
               <button type="submit">Tweet</button>
               <output name="counter" class="counter" for="tweet-text">140</output>
