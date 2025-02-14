@@ -37,10 +37,10 @@ body {
   width: 100%;
   max-width: 600px;
   background: white;
-  padding: 15px;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin: 40px auto;
   text-align: center;
 }
 
