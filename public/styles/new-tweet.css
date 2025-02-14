@@ -1,0 +1,67 @@
+/* new tweet form styles */
+.new-tweet {
+  width: 100%;
+  max-width: 600px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+/* label styling */
+.new-tweet label {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* tweet input box */
+.new-tweet textarea {
+  width: 100%;
+  height: 80px;
+  font-size: 18px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+/* tweet controls button and counter */
+.tweet-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* button styling */
+.tweet-controls button {
+  background-color: #4056A1;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+/* button hover effect */
+.tweet-controls button:hover {
+  background-color: #394b93;
+}
+
+/* counter styling */
+.counter {
+  font-size: 18px;
+  font-weight: bold;
+  color: #545149;
+}
