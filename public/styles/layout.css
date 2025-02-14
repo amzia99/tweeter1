@@ -14,10 +14,43 @@ html {
  * Global layout stuff
  */
 
-body {
+ body {
   color: #545149;
   background-color: #f4f1ec;
+  font-size: 16px; 
+  font-family: 'Source Sans 3', sans-serif; 
+  margin: 0; 
+  padding: 0;
+}
+
+/*Global heading styles*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bungee', sans-serif;
+  font-weight: 400;
+}
+
+/*Added styles for the navigation bar*/
+nav {
+  background-color: #ffcc00;
+  padding: 15px 20px;
+  text-align: center;
   font-size: 24px;
+  font-weight: bold;
+}
+
+/*Styling for the Tweeter title*/
+.title {
+  font-family: 'Bungee', sans-serif;
+  font-size: 28px;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+/*Added a wrapper for the main content*/
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 /*
