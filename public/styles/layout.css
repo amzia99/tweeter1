@@ -117,6 +117,8 @@ nav {
   align-items: center;
   gap: 15px;
   padding: 20px;
+  justify-content: center;
+  width: 100%;
 }
 
 .profile img {
