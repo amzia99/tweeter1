@@ -1,4 +1,4 @@
-/* Code for nav*/
+/* Code for nav */
 /* Navigation Bar */
 nav {
   height: 120px;
@@ -9,7 +9,10 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5em;
-  position: relative;
+  position: fixed;  
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 /* Dropdown icon positioning */
@@ -20,17 +23,27 @@ nav {
   transform: translateY(-50%);
   display: flex;
   align-items: center;
+  gap: 8px; 
+  cursor: pointer; 
 }
+
 
 .new-tweet span {
   font-family: 'Source Sans 3', sans-serif;
   font-weight: bold;
-  margin-right: 10px;
+  font-size: 1.2em;
 }
 
+/* Font Awesome icon styling */
 .new-tweet i {
   color: red;
-  font-size: 20px;
+  font-size: 24px; 
+  transition: transform 0.3s ease; 
+}
+
+/* Hover effect for UX */
+.new-tweet:hover i {
+  transform: translateY(3px); 
 }
 
 /* Tweeter Title */
@@ -40,21 +53,10 @@ nav .title {
   font-weight: bold;
 }
 
-/* for write a new tweet section */
+/* write a new tweet section */
 nav .new-tweet {
   text-align: right;
-}
-
-nav .new-tweet span {
-  font-family: 'Source Sans 3', sans-serif; 
-  font-weight: bold;
-  font-size: 1.2em;
-}
-
-/* Font Awesome icon styling */
-nav .new-tweet i {
-  display: block;
-  color: red; 
-  font-size: 24px; 
-  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
