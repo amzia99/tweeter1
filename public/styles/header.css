@@ -1,0 +1,39 @@
+/* Header styling */
+.header {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4a261;
+  position: relative;
+}
+
+/* Centered Avatar */
+.avatar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 120px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+/* Avatar fit inside hexagon */
+.avatar-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Center username */
+.user-name {
+  margin-top: 15px;
+  text-align: center;
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: bold;
+  color: white;
+  font-size: 1.5em;
+}
