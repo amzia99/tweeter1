@@ -1,5 +1,6 @@
 /* Code for nav */
-/* Navigation Bar */
+
+/* navbar */
 nav {
   height: 120px;
   width: 100vw;
@@ -15,7 +16,7 @@ nav {
   z-index: 1000;
 }
 
-/* Dropdown icon positioning */
+/* Ensure Write a new tweet dropdown is aligned */
 .new-tweet {
   position: absolute;
   right: 1.5em;
@@ -24,10 +25,10 @@ nav {
   display: flex;
   align-items: center;
   gap: 8px; 
-  cursor: pointer; 
+  cursor: pointer;
 }
 
-
+/* Fix spacing */
 .new-tweet span {
   font-family: 'Source Sans 3', sans-serif;
   font-weight: bold;
@@ -38,12 +39,12 @@ nav {
 .new-tweet i {
   color: red;
   font-size: 24px; 
-  transition: transform 0.3s ease; 
+  transition: transform 0.3s ease;
 }
 
-/* Hover effect for UX */
+/* Hover effect */
 .new-tweet:hover i {
-  transform: translateY(3px); 
+  transform: translateY(3px);
 }
 
 /* Tweeter Title */
@@ -51,12 +52,4 @@ nav .title {
   font-family: 'Bungee', sans-serif; 
   font-size: 2em; 
   font-weight: bold;
-}
-
-/* write a new tweet section */
-nav .new-tweet {
-  text-align: right;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
