@@ -1,16 +1,15 @@
-/* Compose tweet section centered */
+/* ✅ Center and align Compose Tweet Section */
 .tweet-form-container {
   width: 90%;
   max-width: 600px;
-  margin: 20px auto; 
+  margin: 20px auto;
   padding-bottom: 10px;
-  background: transparent;
+  background: transparent; /* ✅ Removed background */
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 20px;
 }
 
-/* Form styling */
+/* ✅ Form styling */
 .tweet-form-container form {
   display: flex;
   flex-direction: column;
@@ -18,36 +17,32 @@
   padding: 10px 0;
 }
 
-/* Label styling */
+/* ✅ Remove unnecessary label */
 .tweet-form-container label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #545149;
-  display: block;
-  margin-bottom: 8px;
+  display: none; /* ✅ Removed since placeholder is used */
 }
 
-/* textarea to span form width */
+/* ✅ Make textarea full width and adjust padding */
 .tweet-form-container textarea {
   width: 100%;
-  height: 40px;
+  height: 50px; /* ✅ Increased height for better usability */
   font-size: 1rem;
-  padding: 5px;
+  padding: 8px 10px; /* ✅ Adjusted padding */
   border: none;
   border-bottom: 3px solid #545149;
   background: transparent;
   outline: none;
   resize: none;
   color: #545149;
-  margin-bottom: 2px;
+  margin-bottom: 5px; /* ✅ Reduced spacing */
 }
 
-/* Remove the textarea border */
-.new-tweet textarea:focus {
-  border-bottom: 3px solid #000; 
+/* ✅ Fix textarea focus border */
+.tweet-form-container textarea:focus {
+  border-bottom: 3px solid #000;
 }
 
-/* tweet form control buttons aligned */
+/* ✅ Align tweet form controls properly */
 .tweet-controls {
   display: flex;
   justify-content: space-between;
@@ -55,7 +50,7 @@
   padding-top: 10px;
 }
 
-/* styling button */
+/* ✅ Style Tweet Button */
 .tweet-controls button {
   background-color: #4056A1;
   color: white;
@@ -68,12 +63,12 @@
   font-family: 'Bungee', sans-serif;
 }
 
-/* Button hover effect */
+/* ✅ Improve button hover effect */
 .tweet-controls button:hover {
   background-color: #31447c;
 }
 
-/* Styling the counter */
+/* ✅ Ensure counter is aligned properly */
 .tweet-controls .counter {
   font-size: 18px;
   font-weight: bold;
@@ -81,7 +76,7 @@
   font-family: 'Bungee', sans-serif;
 }
 
-/* Navbar tweet button - seperate styling */
+/* ✅ Fix Navbar Tweet Button positioning */
 .nav-tweet {
   position: absolute;
   right: 1.5em;
@@ -96,14 +91,23 @@
   padding: 10px;
 }
 
-/* navbar tweet button styling */
+/* ✅ Fix "Write a new tweet" styles */
+.nav-tweet .bold-text {
+  font-weight: bold;
+}
+
+.nav-tweet .light-text {
+  font-weight: normal;
+}
+
+/* ✅ Fix Navbar Tweet Button Text Styling */
 .nav-tweet span {
   font-family: 'Source Sans 3', sans-serif;
   font-weight: bold;
   font-size: 1.2em;
 }
 
-/* Navbar tweet button hover effect */
+/* ✅ Ensure Navbar Tweet Button Hover Effect */
 .nav-tweet i {
   color: red;
   font-size: 24px;
@@ -114,8 +118,7 @@
   transform: translateY(3px);
 }
 
-/* counter coloring */
+/* ✅ Counter coloring - Error Handling */
 .counter.invalid {
   color: red;
 }
-

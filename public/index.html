@@ -32,6 +32,7 @@
     <!-- App JavaScript -->
     <script defer type="text/javascript" src="scripts/client.js"></script>
     <script defer src="scripts/composer-char-counter.js"></script>
+    <script defer src="scripts/tweets.js"></script> <!-- ✅ Ensure tweets.js is loaded -->
   </head>
 
   <body>
@@ -55,13 +56,12 @@
     </header>  
 
     <main class="container">
-      <!-- Wrapped tweet form inside a container to ensure alignment -->
       <div class="tweet-wrapper">
-        <section class="tweet-form-container">  
-          <form id="tweet-form" action="#">  
-            <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea> 
+        <section class="tweet-form-container">
+          <form id="tweet-form" action="/api/tweets" method="POST">
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea>
             <div class="tweet-controls">
-              <button type="submit">TWEET</button>  <!-- TWEET is uppercase -->
+              <button type="submit">TWEET</button>
               <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
           </form>
@@ -69,9 +69,7 @@
       </div>
 
       <!-- Tweets container moved inside main for better layout -->
-      <section class="tweets-container">
-        <!-- Tweets inserted here dynamically -->
-      </section>
+      <section class="tweets-container"></section>
     </main>  
 
     <!-- Footer -->

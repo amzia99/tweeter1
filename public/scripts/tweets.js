@@ -1,5 +1,19 @@
 $(document).ready(function() {
   //  tweets 
+  function loadTweets() {
+    $.ajax({
+      url: "/api/tweets", // ✅ Fetch tweets from backend
+      method: "GET",
+      dataType: "json",
+      success: function(tweets) {
+        renderTweets(tweets);
+      },
+      error: function(err) {
+        console.error("❌ Failed to fetch tweets:", err);
+      }
+    });
+  }
+  
   const tweetsData = [
     {
       user: {
