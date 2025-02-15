@@ -1,49 +1,56 @@
-// tweets codde
 $(document).ready(function() {
+  // ✅ Hardcoded tweets data
   const tweetsData = [
     {
       user: {
-        name: "Rosa Frilli",
-        avatar: "images/avatar1.png",
-        handle: "@Frilli20"
+        name: "Sun Tzu",
+        avatar: "images/suntzu.png", // ✅ Ensure correct path
+        handle: "@Tzu771"
       },
-      content: "All that glitters is not gold.",
+      content: "Appear weak when you are strong, and strong when you are weak.",
       created_at: "just now"
     },
     {
       user: {
-        name: "Descartes",
-        avatar: "images/avatar2.png",
-        handle: "@rd"
+        name: "Napoleon Bonaparte",
+        avatar: "images/napoleon.png", // ✅ Ensure correct path
+        handle: "@Bonaparte769"
       },
-      content: "Je pense, donc je suis",
+      content: "My enemies are many, my equals are none.",
       created_at: "1 day ago"
     },
     {
       user: {
-        name: "Newton",
-        avatar: "images/avatar3.png",
-        handle: "@SirIsaac"
+        name: "Alexander the Great",
+        avatar: "images/alex.png", // ✅ Ensure correct path
+        handle: "@Alex356"
       },
-      content: "If I have seen further, it is by standing on the shoulders of giants",
+      content: "There is nothing impossible to him who will try.",
       created_at: "10 days ago"
     }
   ];
 
-  // Function to create a tweet element HTML string
+  // ✅ Function to escape user input to prevent XSS attacks
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+  // ✅ Function to create a tweet element HTML string
   function createTweetElement(tweet) {
     return `
       <article class="tweet">
         <header>
           <div class="profile">
-            <img src="${tweet.user.avatar}" class="avatar" alt="User Avatar">
-            <span>${tweet.user.name}</span>
+            <img src="${escape(tweet.user.avatar)}" class="avatar" alt="User Avatar">
+            <span>${escape(tweet.user.name)}</span>
           </div>
-          <span class="handle">${tweet.user.handle}</span>
+          <span class="handle">${escape(tweet.user.handle)}</span>
         </header>
-        <p>${tweet.content}</p>
+        <p>${escape(tweet.content)}</p>
         <footer>
-          <span>${tweet.created_at}</span>
+          <span>${escape(tweet.created_at)}</span>
           <div class="icons">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -54,15 +61,22 @@ $(document).ready(function() {
     `;
   }
 
-  // Function to render tweets
+  // ✅ Function to render tweets dynamically
   function renderTweets(tweets) {
     const container = $(".tweets-container");
-    container.empty(); 
-    tweets.forEach(tweet => {
-      container.append(createTweetElement(tweet));
-    });
+    
+    // ✅ Debugging: Check if container exists
+    if (container.length === 0) {
+      console.error("❌ Error: .tweets-container not found.");
+      return;
+    }
+
+    container.empty(); // ✅ Clear existing tweets before rendering
+
+    const tweetElements = tweets.map(tweet => createTweetElement(tweet));
+    container.append(tweetElements.join("")); // ✅ Optimized DOM manipulation
   }
 
-  // Load initial tweets
+  // ✅ Load initial tweets on page load
   renderTweets(tweetsData);
 });
