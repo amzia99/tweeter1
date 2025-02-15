@@ -26,10 +26,10 @@
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- ✅ Added `tweets.js` to load tweets dynamically -->
+    <!--  load tweets dynamically -->
     <script defer type="text/javascript" src="scripts/tweets.js"></script>
     
-    <!-- ✅ App JavaScript -->
+    <!-- App JavaScript -->
     <script defer type="text/javascript" src="scripts/client.js"></script>
     <script defer src="scripts/composer-char-counter.js"></script>
   </head>
@@ -55,20 +55,20 @@
     </header>  
 
     <main class="container">
-      <!-- ✅ Wrapped tweet form inside a container to ensure alignment -->
+      <!-- Wrapped tweet form inside a container to ensure alignment -->
       <div class="tweet-wrapper">
         <section class="tweet-form-container">  
-          <form id="tweet-form" action="#">  <!-- ✅ Changed `action="/api/tweets"` to `#` since AJAX handles it -->
+          <form id="tweet-form" action="#">  
             <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea> 
             <div class="tweet-controls">
-              <button type="submit">TWEET</button>  <!-- ✅ Ensured TWEET is uppercase -->
+              <button type="submit">TWEET</button>  <!-- TWEET is uppercase -->
               <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
           </form>
         </section>
       </div>
 
-      <!-- ✅ Tweets container moved inside `main` for better layout -->
+      <!-- Tweets container moved inside main for better layout -->
       <section class="tweets-container">
         <!-- Tweets inserted here dynamically -->
       </section>

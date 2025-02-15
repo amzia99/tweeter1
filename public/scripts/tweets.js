@@ -1,10 +1,10 @@
 $(document).ready(function() {
-  // ✅ Hardcoded tweets data
+  //  tweets 
   const tweetsData = [
     {
       user: {
         name: "Sun Tzu",
-        avatar: "images/suntzu.png", // ✅ Ensure correct path
+        avatar: "images/suntzu.png", 
         handle: "@Tzu771"
       },
       content: "Appear weak when you are strong, and strong when you are weak.",
@@ -13,7 +13,7 @@ $(document).ready(function() {
     {
       user: {
         name: "Napoleon Bonaparte",
-        avatar: "images/napoleon.png", // ✅ Ensure correct path
+        avatar: "images/napoleon.png", 
         handle: "@Bonaparte769"
       },
       content: "My enemies are many, my equals are none.",
@@ -22,7 +22,7 @@ $(document).ready(function() {
     {
       user: {
         name: "Alexander the Great",
-        avatar: "images/alex.png", // ✅ Ensure correct path
+        avatar: "images/alex.png", 
         handle: "@Alex356"
       },
       content: "There is nothing impossible to him who will try.",
@@ -30,14 +30,14 @@ $(document).ready(function() {
     }
   ];
 
-  // ✅ Function to escape user input to prevent XSS attacks
+  // Function to prevent XSS attacks
   const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-  // ✅ Function to create a tweet element HTML string
+  // Function to create a tweet element HTML string
   function createTweetElement(tweet) {
     return `
       <article class="tweet">
@@ -61,22 +61,22 @@ $(document).ready(function() {
     `;
   }
 
-  // ✅ Function to render tweets dynamically
+  // Function to render tweets dynamically
   function renderTweets(tweets) {
     const container = $(".tweets-container");
     
-    // ✅ Debugging: Check if container exists
+    // Debugging: Check if container exists
     if (container.length === 0) {
       console.error("❌ Error: .tweets-container not found.");
       return;
     }
 
-    container.empty(); // ✅ Clear existing tweets before rendering
+    container.empty(); // Clear existing tweets before rendering
 
     const tweetElements = tweets.map(tweet => createTweetElement(tweet));
-    container.append(tweetElements.join("")); // ✅ Optimized DOM manipulation
+    container.append(tweetElements.join("")); // Optimized DOM manipulation
   }
 
-  // ✅ Load initial tweets on page load
+  // Load initial tweets on page load
   renderTweets(tweetsData);
 });
