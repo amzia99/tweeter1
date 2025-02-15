@@ -113,3 +113,9 @@
 .nav-tweet:hover i {
   transform: translateY(3px);
 }
+
+/* counter coloring */
+.counter.invalid {
+  color: red;
+}
+
