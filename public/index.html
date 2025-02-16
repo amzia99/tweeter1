@@ -15,23 +15,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:wght@200;300;400;600;900&display=swap" rel="stylesheet">
 
-    <!-- App CSS -->
+    <!-- ✅ Corrected CSS Load Order -->
     <link rel="stylesheet" href="styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="styles/header.css" type="text/css" />
     <link rel="stylesheet" href="styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="styles/tweets.css" type="text/css" />
-    <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" /> 
-    <link rel="stylesheet" href="styles/tweet.css" type="text/css" />
+    <link rel="stylesheet" href="styles/tweet.css" type="text/css" />  <!-- ✅ Ensure tweet.css is before new-tweet.css -->
+    <link rel="stylesheet" href="styles/new-tweet.css" type="text/css" />  <!-- ✅ Load last to avoid overriding tweet styles -->
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!--  load tweets dynamically -->
-    
-    <!-- App JavaScript -->
-    <script defer type="text/javascript" src="scripts/client.js"></script>
-    <script defer src="scripts/composer-char-counter.js"></script>
-    <script defer src="scripts/tweets.js"></script> <!-- ✅ Ensure tweets.js is loaded -->
+    <!-- ✅ Corrected JavaScript Load Order -->
+    <script defer src="scripts/client.js"></script>  <!-- ✅ Load UI logic first -->
+    <script defer src="scripts/composer-char-counter.js"></script>  <!-- ✅ Load tweet character counter -->
+    <script defer src="scripts/tweets.js"></script>  <!-- ✅ Load tweets last -->
   </head>
 
   <body>
@@ -55,19 +53,18 @@
     </header>  
 
     <main class="container">
-      <div class="tweet-wrapper">
-        <section class="tweet-form-container">
-          <form id="tweet-form" action="/api/tweets" method="POST">
-            <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea>
-            <div class="tweet-controls">
-              <button type="submit">TWEET</button>
-              <output name="counter" class="counter" for="tweet-text">140</output>
-            </div>
-          </form>
-        </section>
-      </div>
+      <!-- ✅ Removed unnecessary div wrapper -->
+      <section class="tweet-form-container">
+        <form id="tweet-form" action="/api/tweets" method="POST">
+          <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea>
+          <div class="tweet-controls">
+            <button type="submit">TWEET</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
 
-      <!-- Tweets container moved inside main for better layout -->
+      <!-- ✅ Tweets container correctly positioned -->
       <section class="tweets-container"></section>
     </main>  
 

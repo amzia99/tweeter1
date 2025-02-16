@@ -6,54 +6,54 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding-bottom: 20px; /* ✅ Added padding to separate from bottom */
+  padding-bottom: 20px; /* ✅ Ensures separation from bottom */
 }
 
 /* ✅ Individual Tweet Styling */
 .tweet {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   border: 2px solid #545149;
   border-radius: 10px;
   padding: 15px;
   background: #f4f1ec;
   transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
   word-wrap: break-word; /* ✅ Ensures long words don't overflow */
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
-/* ✅ Tweet Hover State */
+/* ✅ Tweet Hover State (Only Style Change) */
 .tweet:hover {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px); /* ✅ Slight lift effect on hover */
+  transform: translateY(-3px); /* ✅ Adds slight hover effect */
   background: #f4f1ec;
 }
 
-/* ✅ Tweet Header - avatar and name */
+/* ✅ Tweet Header - Avatar and Name */
 .tweet header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 10px; /* ✅ Added padding to prevent overlap */
-  border-bottom: 1px solid #ccc; /* ✅ Subtle divider for clarity */
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc; /* ✅ Subtle divider */
 }
 
-/* ✅ Profile container */
+/* ✅ Profile Container */
 .tweet .profile {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* ✅ Profile pic - Adjusted for consistency */
+/* ✅ Profile Picture */
 .tweet .avatar {
-  width: 48px; /* ✅ Increased for better visibility */
+  width: 48px;
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-/* ✅ Name Styling */
+/* ✅ User Name Styling */
 .tweet .profile span {
   font-size: 1rem;
   font-weight: bold;
@@ -78,7 +78,7 @@
   overflow-wrap: break-word;
 }
 
-/* ✅ Tweet Footer - Fixing Alignment */
+/* ✅ Tweet Footer */
 .tweet footer {
   display: flex;
   justify-content: space-between;
@@ -86,42 +86,45 @@
   padding: 10px 15px;
   font-size: 0.9rem;
   background: transparent;
-  border-top: none; /* ✅ Removed border causing line issue */
+  border-top: none;
 }
 
-/* ✅ Remove the Extra Line */
+/* ✅ Ensure Footer Separator is Removed */
 .tweet footer::before {
-  content: none; /* ✅ Removed extra line */
+  content: none;
 }
 
-/* ✅ Make timestamp always visible & aligned left */
+/* ✅ Timestamp Styling - Always Visible */
 .tweet footer .timestamp {
   flex-grow: 1;
   text-align: left;
   color: #545149;
   font-size: 0.85rem;
   font-weight: normal;
-  visibility: visible; /* ✅ Ensures it's always visible */
+  visibility: visible !important; /* ✅ Ensures it's always visible */
+  opacity: 1 !important;
 }
 
-/* ✅ Tweet Footer Icons - Always Visible */
+/* ✅ Icons Container - Always Visible */
 .tweet .icons {
   display: flex;
   gap: 12px;
-  align-items: center; /* ✅ Ensures even alignment */
+  align-items: center;
   visibility: visible !important; /* ✅ Always visible */
+  opacity: 1 !important;
 }
 
-/* ✅ Icon Styling */
+/* ✅ Icons Default Styling */
 .tweet .icons i {
   color: #4056A1;
   transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
   cursor: pointer;
   padding: 5px;
   visibility: visible !important; /* ✅ Always visible */
+  opacity: 1 !important;
 }
 
-/* ✅ Icon Hover Effect */
+/* ✅ Icons Hover Effect */
 .tweet .icons i:hover {
   color: #ffcc00; /* ✅ Changes to yellow */
   transform: scale(1.2);
