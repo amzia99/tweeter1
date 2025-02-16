@@ -64,8 +64,8 @@ $(document).ready(function() {
         </header>
         <p>${escape(tweet.content)}</p>
         <footer>
-          <span>${escape(tweet.created_at)}</span>
-          <div class="icons">
+          <span class="timestamp" style="visibility: visible; opacity: 1;">${escape(tweet.created_at)}</span>
+          <div class="icons" style="visibility: visible; opacity: 1; display: flex;">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
             <i class="fa-solid fa-heart"></i>
@@ -74,6 +74,7 @@ $(document).ready(function() {
       </article>
     `;
   }
+
 
   // Function to render tweets dynamically
   function renderTweets(tweets) {
