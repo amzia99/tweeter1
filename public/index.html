@@ -58,6 +58,10 @@
     <main class="container">
       <!-- Form ID -->
       <section class="tweet-form-container">
+
+        <!-- Error message container  -->
+        <div class="error-message" aria-live="polite"></div>
+
         <form id="tweet-form" action="/api/tweets" method="POST">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea>
           <div class="tweet-controls">
