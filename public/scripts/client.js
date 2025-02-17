@@ -1,24 +1,24 @@
 // client side code
-
 $(document).ready(function() {
-  
+
   // Function to create a tweet element
   const createTweetElement = function(tweet) {
-    const { name, avatar, handle } = tweet.user;
-    const { content, created_at } = tweet;
+    const { name, avatars, handle } = tweet.user; 
+    const { text } = tweet.content; 
+    const timeAgo = timeago.format(tweet.created_at); 
 
     const $tweet = $(`
       <article class="tweet">
         <header>
           <div class="user-info">
-            <img src="${avatar}" alt="User Avatar">
+            <img src="${avatars}" alt="User Avatar">
             <h3>${name}</h3>
           </div>
           <span class="handle">${handle}</span>
         </header>
-        <p class="tweet-content">${content}</p>
+        <p class="tweet-content">${text}</p>
         <footer>
-          <span class="timestamp">${created_at}</span>
+          <span class="timestamp">${timeAgo}</span> 
           <div class="tweet-actions">
             <i class="fa-solid fa-flag"></i>
             <i class="fa-solid fa-retweet"></i>
@@ -37,42 +37,66 @@ $(document).ready(function() {
 
     tweets.forEach(tweet => {
       const $tweetElement = createTweetElement(tweet);
-      $('#tweets-container').append($tweetElement);
+      $('#tweets-container').prepend($tweetElement); 
     });
   };
 
-  // Test Code to render tweets
-  const tweetsData = [
-    {
-      user: {
-        name: "Sun Tzu",
-        avatar: "images/suntzu.png", 
-        handle: "@Tzu771"
+  // Function to load tweets from the server
+  const loadTweets = function() {
+    $.ajax({
+      type: "GET",
+      url: "/api/tweets",
+      success: function(tweets) {
+        console.log("Loaded tweets:", tweets); 
+        renderTweets(tweets);
       },
-      content: "Appear weak when you are strong, and strong when you are weak.",
-      created_at: "just now"
-    },
-    {
-      user: {
-        name: "Napoleon Bonaparte",
-        avatar: "images/napoleon.png", 
-        handle: "@Bonaparte769"
-      },
-      content: "My enemies are many, my equals are none.",
-      created_at: "1 day ago"
-    },
-    {
-      user: {
-        name: "Alexander the Great",
-        avatar: "images/alex.png", 
-        handle: "@Alex356"
-      },
-      content: "There is nothing impossible to him who will try.",
-      created_at: "10 days ago"
+      error: function(err) {
+        console.error("Error loading tweets:", err);
+      }
+    });
+  };
+
+  // AJAX Form for new tweet submisison
+  $("#tweet-form").on("submit", function(event) {
+    event.preventDefault(); 
+
+    // Serialize form data
+    const tweetData = $(this).serialize();
+    const tweetText = $("#tweet-text").val().trim();
+
+    // Prevent submitting empty tweets
+    if (tweetText === "") {
+      alert("Tweet cannot be empty!"); // Simple validation
+      return;
     }
-  ];
 
-  // renderTweets to test tweets
-  renderTweets(tweetsData);
+    // Prevent tweeting over 140 characters
+    if (tweetText.length > 140) {
+      alert("Tweet exceeds 140 characters!"); 
+      return;
+    }
 
+    // Send the POST request using AJAX
+    $.ajax({
+      type: "POST",
+      url: "/api/tweets",
+      data: tweetData,
+      success: function(response) {
+        console.log("Tweet submitted successfully:", response);
+        
+        // Clear the textarea after submission
+        $("#tweet-text").val("");
+        $(".counter").text("140"); 
+
+        // Reload tweets to show the new one
+        loadTweets();
+      },
+      error: function(err) {
+        console.error("Error submitting tweet:", err);
+      }
+    });
+  });
+
+  // Load initial tweets when the page loads
+  loadTweets();
 });
