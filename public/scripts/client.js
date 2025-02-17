@@ -8,29 +8,32 @@ $(document).ready(function() {
     const { text } = tweet.content; 
     const timeAgo = timeago.format(tweet.created_at); 
 
-    const $tweet = $(`
-      <article class="tweet">
-        <header>
-          <div class="user-info">
-            <img src="${avatars}" alt="User Avatar">
-            <h3>${name}</h3>
-          </div>
-          <span class="handle">${handle}</span>
-        </header>
-        <p class="tweet-content">${text}</p>
-        <footer>
-          <span class="timestamp">${timeAgo}</span> 
-          <div class="tweet-actions">
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-        </footer>
-      </article>
-    `);
+   // Prevent XSS attacks
+   const $tweet = $(`
+    <article class="tweet">
+      <header>
+        <div class="user-info">
+          <img src="${avatars}" alt="User Avatar">
+          <h3>${name}</h3>
+        </div>
+        <span class="handle">${handle}</span>
+      </header>
+      <p class="tweet-content"></p> <!-- ✅ Empty paragraph -->
+      <footer>
+        <span class="timestamp">${timeAgo}</span>
+        <div class="tweet-actions">
+          <i class="fa-solid fa-flag"></i>
+          <i class="fa-solid fa-retweet"></i>
+          <i class="fa-solid fa-heart"></i>
+        </div>
+      </footer>
+    </article>
+  `);
 
-    return $tweet;
-  };
+  $tweet.find(".tweet-content").text(text); // secure to set text content
+
+  return $tweet;
+};
 
   // Function to render tweets
   const renderTweets = function(tweets) {
