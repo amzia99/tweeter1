@@ -1,4 +1,4 @@
-/* ✅ Tweet Container layout */
+/* Tweet Container layout */
 .tweets-container {
   width: 90%;
   max-width: 600px;
@@ -6,10 +6,10 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  padding-bottom: 20px; /* ✅ Ensures separation from bottom */
+  padding-bottom: 20px; 
 }
 
-/* ✅ Individual Tweet Styling */
+/* Individual Tweet Styling */
 .tweet {
   display: flex;
   flex-direction: column;
@@ -19,33 +19,33 @@
   padding: 15px;
   background: #f4f1ec;
   transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
-  word-wrap: break-word; /* ✅ Ensures long words don't overflow */
+  word-wrap: break-word; 
 }
 
-/* ✅ Tweet Hover State (Only Style Change) */
+/* Tweet Hover State */
 .tweet:hover {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px); /* ✅ Adds slight hover effect */
+  transform: translateY(-3px); /* Adds slight hover effect */
   background: #f4f1ec;
 }
 
-/* ✅ Tweet Header - Avatar and Name */
+/* Tweet Header - Avatar and Name */
 .tweet header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ccc; /* ✅ Subtle divider */
+  border-bottom: 1px solid #ccc; 
 }
 
-/* ✅ Profile Container */
+/* Profile Container */
 .tweet .profile {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* ✅ Profile Picture */
+/* Profile Picture */
 .tweet .avatar {
   width: 48px;
   height: 48px;
@@ -53,14 +53,14 @@
   object-fit: cover;
 }
 
-/* ✅ User Name Styling */
+/* User Name Styling */
 .tweet .profile span {
   font-size: 1rem;
   font-weight: bold;
   color: #3a3a3a;
 }
 
-/* ✅ Handle Styling */
+/* Handle Styling */
 .tweet .handle {
   color: #9a9a9a;
   font-size: 0.9rem;
@@ -68,17 +68,17 @@
   text-align: right;
 }
 
-/* ✅ Tweet Content */
+/* Tweet Content */
 .tweet p {
   font-size: 1rem;
   color: #545149;
   margin: 10px 0 15px;
-  line-height: 1.5; /* ✅ Improved readability */
+  line-height: 1.5; 
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
-/* ✅ Tweet Footer */
+/* Tweet Footer */
 .tweet footer {
   display: flex;
   justify-content: space-between;
@@ -89,43 +89,43 @@
   border-top: none;
 }
 
-/* ✅ Ensure Footer Separator is Removed */
+
 .tweet footer::before {
   content: none;
 }
 
-/* ✅ Timestamp Styling - Always Visible */
+
 .tweet footer .timestamp {
   flex-grow: 1;
   text-align: left;
   color: #545149;
   font-size: 0.85rem;
   font-weight: normal;
-  visibility: visible !important; /* ✅ Ensures it's always visible */
+  visibility: visible !important; 
   opacity: 1 !important;
 }
 
-/* ✅ Icons Container - Always Visible */
+/* Icons Container  */
 .tweet .icons {
   display: flex;
   gap: 12px;
   align-items: center;
-  visibility: visible !important; /* ✅ Always visible */
+  visibility: visible !important; 
   opacity: 1 !important;
 }
 
-/* ✅ Icons Default Styling */
+/* Icons Default Styling */
 .tweet .icons i {
   color: #4056A1;
   transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
   cursor: pointer;
   padding: 5px;
-  visibility: visible !important; /* ✅ Always visible */
+  visibility: visible !important; 
   opacity: 1 !important;
 }
 
-/* ✅ Icons Hover Effect */
+/* Icons Hover Effect */
 .tweet .icons i:hover {
-  color: #ffcc00; /* ✅ Changes to yellow */
+  color: #ffcc00; 
   transform: scale(1.2);
 }

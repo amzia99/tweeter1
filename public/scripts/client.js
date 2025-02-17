@@ -1,4 +1,5 @@
-// client side code
+// Client side code
+
 $(document).ready(function() {
 
   // Function to create a tweet element
@@ -37,7 +38,7 @@ $(document).ready(function() {
 
     tweets.forEach(tweet => {
       const $tweetElement = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweetElement); 
+      $('#tweets-container').prepend($tweetElement.hide().fadeIn(500)); // Smooth fade-in effect
     });
   };
 
@@ -56,25 +57,33 @@ $(document).ready(function() {
     });
   };
 
-  // AJAX Form for new tweet submisison
+  // Function to display validation errors
+  const showError = function(message) {
+    $(".error-message").text(message).slideDown(); // Smooth error display
+    setTimeout(() => $(".error-message").slideUp(), 3000); // Auto-hide after 3 seconds
+  };
+
+  // AJAX Form for new tweet submission
   $("#tweet-form").on("submit", function(event) {
     event.preventDefault(); 
 
-    // Serialize form data
-    const tweetData = $(this).serialize();
+    // Retrieve and trim form input
     const tweetText = $("#tweet-text").val().trim();
 
     // Prevent submitting empty tweets
     if (tweetText === "") {
-      alert("Tweet cannot be empty!"); // Simple validation
+      showError("🚨 Error: Tweet cannot be empty!"); 
       return;
     }
 
     // Prevent tweeting over 140 characters
     if (tweetText.length > 140) {
-      alert("Tweet exceeds 140 characters!"); 
+      showError("🚨 Error: Tweet exceeds 140 characters!"); 
       return;
     }
+
+    // Serialize form data
+    const tweetData = $(this).serialize();
 
     // Send the POST request using AJAX
     $.ajax({
@@ -96,6 +105,9 @@ $(document).ready(function() {
       }
     });
   });
+
+  // Hide error message on page load
+  $(".error-message").hide();
 
   // Load initial tweets when the page loads
   loadTweets();

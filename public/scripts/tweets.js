@@ -2,7 +2,7 @@ $(document).ready(function() {
   //  tweets 
   function loadTweets() {
     $.ajax({
-      url: "/api/tweets", // ✅ Fetch tweets from backend
+      url: "/api/tweets", //get tweets from backend
       method: "GET",
       dataType: "json",
       success: function(tweets) {
