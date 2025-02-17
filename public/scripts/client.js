@@ -1,4 +1,4 @@
-// Client side code
+// client side code
 
 $(document).ready(function() {
 
@@ -8,32 +8,32 @@ $(document).ready(function() {
     const { text } = tweet.content; 
     const timeAgo = timeago.format(tweet.created_at); 
 
-   // Prevent XSS attacks
-   const $tweet = $(`
-    <article class="tweet">
-      <header>
-        <div class="user-info">
-          <img src="${avatars}" alt="User Avatar">
-          <h3>${name}</h3>
-        </div>
-        <span class="handle">${handle}</span>
-      </header>
-      <p class="tweet-content"></p> <!-- ✅ Empty paragraph -->
-      <footer>
-        <span class="timestamp">${timeAgo}</span>
-        <div class="tweet-actions">
-          <i class="fa-solid fa-flag"></i>
-          <i class="fa-solid fa-retweet"></i>
-          <i class="fa-solid fa-heart"></i>
-        </div>
-      </footer>
-    </article>
-  `);
+    // Prevent XSS attacks
+    const $tweet = $(`
+      <article class="tweet">
+        <header>
+          <div class="user-info">
+            <img src="${avatars}" alt="User Avatar">
+            <h3>${name}</h3>
+          </div>
+          <span class="handle">${handle}</span>
+        </header>
+        <p class="tweet-content"></p> <!-- ✅ Empty paragraph -->
+        <footer>
+          <span class="timestamp">${timeAgo}</span>
+          <div class="tweet-actions">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </footer>
+      </article>
+    `);
 
-  $tweet.find(".tweet-content").text(text); // secure to set text content
+    $tweet.find(".tweet-content").text(text); 
 
-  return $tweet;
-};
+    return $tweet;
+  };
 
   // Function to render tweets
   const renderTweets = function(tweets) {
@@ -41,7 +41,7 @@ $(document).ready(function() {
 
     tweets.forEach(tweet => {
       const $tweetElement = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweetElement.hide().fadeIn(500)); // Smooth fade-in effect
+      $('#tweets-container').prepend($tweetElement.hide().fadeIn(500)); 
     });
   };
 
@@ -62,15 +62,21 @@ $(document).ready(function() {
 
   // Function to display validation errors
   const showError = function(message) {
+    const $errorContainer = $(".error-message");
+
+    if ($errorContainer.length === 0) {
+      $("#tweet-form").before('<div class="error-message"></div>'); 
+    }
+
     $(".error-message").text(message).slideDown(); // Smooth error display
-    setTimeout(() => $(".error-message").slideUp(), 3000); // Auto-hide after 3 seconds
+    setTimeout(() => $(".error-message").slideUp(), 3000); 
   };
 
   // AJAX Form for new tweet submission
   $("#tweet-form").on("submit", function(event) {
     event.preventDefault(); 
 
-    // Retrieve and trim form input
+    
     const tweetText = $("#tweet-text").val().trim();
 
     // Prevent submitting empty tweets
@@ -95,13 +101,27 @@ $(document).ready(function() {
       data: tweetData,
       success: function(response) {
         console.log("Tweet submitted successfully:", response);
-        
+
         // Clear the textarea after submission
         $("#tweet-text").val("");
-        $(".counter").text("140"); 
+        $(".counter").text("140");
 
-        // Reload tweets to show the new one
-        loadTweets();
+        // Fetch only the latest tweet instead of all tweets
+        $.ajax({
+          type: "GET",
+          url: "/api/tweets",
+          success: function(tweets) {
+            const latestTweet = tweets[tweets.length - 1];
+            if (latestTweet) {
+              const $newTweet = createTweetElement(latestTweet);
+              $('#tweets-container').prepend($newTweet.hide().fadeIn(500).addClass("new-tweet")); // ✅ Highlight effect for new tweets
+              setTimeout(() => $newTweet.removeClass("new-tweet"), 2000); 
+            }
+          },
+          error: function(err) {
+            console.error("Error fetching latest tweet:", err);
+          }
+        });
       },
       error: function(err) {
         console.error("Error submitting tweet:", err);
