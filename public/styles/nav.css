@@ -16,7 +16,7 @@ nav {
   z-index: 1000;
 }
 
-/* Ensure Write a new tweet dropdown is aligned */
+/* Write a new tweet dropdown is aligned */
 .new-tweet {
   position: absolute;
   right: 1.5em;

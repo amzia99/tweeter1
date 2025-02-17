@@ -1,4 +1,4 @@
-// client side code
+// client code
 
 $(document).ready(function() {
 
@@ -30,7 +30,7 @@ $(document).ready(function() {
       </article>
     `);
 
-    $tweet.find(".tweet-content").text(text); 
+    $tweet.find(".tweet-content").text(text); // Securely set text content
 
     return $tweet;
   };
@@ -41,7 +41,7 @@ $(document).ready(function() {
 
     tweets.forEach(tweet => {
       const $tweetElement = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweetElement.hide().fadeIn(500)); 
+      $('#tweets-container').prepend($tweetElement.hide().fadeIn(500)); // Smooth fade-in effect
     });
   };
 
@@ -62,21 +62,31 @@ $(document).ready(function() {
 
   // Function to display validation errors
   const showError = function(message) {
-    const $errorContainer = $(".error-message");
+    let $errorContainer = $(".error-message");
 
+    // Ensure the error container exists
     if ($errorContainer.length === 0) {
-      $("#tweet-form").before('<div class="error-message"></div>'); 
+      $("#tweet-form").before('<div class="error-message"></div>');
+      $errorContainer = $(".error-message");
     }
 
-    $(".error-message").text(message).slideDown(); // Smooth error display
-    setTimeout(() => $(".error-message").slideUp(), 3000); 
+    // Show error with smooth animation
+    $errorContainer.text(message).slideDown();
+  };
+
+  // Function to hide errors before validation starts
+  const hideError = function() {
+    $(".error-message").slideUp();
   };
 
   // AJAX Form for new tweet submission
   $("#tweet-form").on("submit", function(event) {
     event.preventDefault(); 
 
-    
+    // Hide error message before validation
+    hideError();
+
+    // Retrieve and trim form input
     const tweetText = $("#tweet-text").val().trim();
 
     // Prevent submitting empty tweets
@@ -106,22 +116,12 @@ $(document).ready(function() {
         $("#tweet-text").val("");
         $(".counter").text("140");
 
-        // Fetch only the latest tweet instead of all tweets
-        $.ajax({
-          type: "GET",
-          url: "/api/tweets",
-          success: function(tweets) {
-            const latestTweet = tweets[tweets.length - 1];
-            if (latestTweet) {
-              const $newTweet = createTweetElement(latestTweet);
-              $('#tweets-container').prepend($newTweet.hide().fadeIn(500).addClass("new-tweet")); // ✅ Highlight effect for new tweets
-              setTimeout(() => $newTweet.removeClass("new-tweet"), 2000); 
-            }
-          },
-          error: function(err) {
-            console.error("Error fetching latest tweet:", err);
-          }
-        });
+        // Directly add the new tweet instead of fetching all again
+        const $newTweet = createTweetElement(response);
+        $('#tweets-container').prepend($newTweet.hide().fadeIn(500).addClass("new-tweet"));
+
+        // Highlight effect for new tweets
+        setTimeout(() => $newTweet.removeClass("new-tweet"), 2000);
       },
       error: function(err) {
         console.error("Error submitting tweet:", err);

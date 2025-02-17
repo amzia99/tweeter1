@@ -122,3 +122,16 @@
 .counter.invalid {
   color: red;
 }
+
+/* Styling for the error message */
+.error-message {
+  display: none; 
+  color: white;
+  background-color: #ff4d4d;
+  border: 2px solid #cc0000;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
