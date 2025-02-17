@@ -21,6 +21,8 @@ body {
   margin: 0; 
   padding: 0;
   padding-top: 120px;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Centered container */
@@ -33,6 +35,21 @@ body {
   width: 90%; 
   max-width: 800px;  
   margin: 0 auto;  
+}
+
+/*  images scale properly */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 2 column layour for desktop */
+@media screen and (min-width: 1025px) {
+  .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 /* tweet wrapper */
@@ -69,8 +86,6 @@ body {
 .light-text {
   font-weight: 400; /* Normal */
 }
-
-
 
 .new-tweet textarea:focus {
   border-bottom: 3px solid #000; /* Darker border on focus */

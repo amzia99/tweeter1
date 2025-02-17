@@ -1,13 +1,16 @@
-/* Code for nav */
+/* Rotate icon when form is toggled */
+.rotate-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
+}
 
-/* navbar */
+/* Navbar */
 nav {
   height: 120px;
   width: 100vw;
   background-color: #4056A1;
   color: white;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0 1.5em;
   position: fixed;  
@@ -16,12 +19,21 @@ nav {
   z-index: 1000;
 }
 
-/* Write a new tweet dropdown is aligned */
-.new-tweet {
-  position: absolute;
-  right: 1.5em;
-  top: 50%;
-  transform: translateY(-50%);
+/* nav for mobile */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .nav-tweet {
+    margin-top: 10px;
+  }
+}
+
+/* Write a new tweet dropdown */
+.nav-tweet {
   display: flex;
   align-items: center;
   gap: 5px; 
@@ -32,38 +44,25 @@ nav {
   padding: 10px;
 }
 
-.bold-text {
-  font-weight: 700; /* Bold */
-}
-
-.light-text {
-  font-weight: 400; /* Normal */
-}
-
-/* Font Awesome icon styling */
-.new-tweet i {
-  color: red;
-  font-size: 20px; 
-  transition: transform 0.3s ease;
-}
-
-
-/* Hover effect */
-.new-tweet:hover i {
-  transform: translateY(3px);
-}
-
-/* Fix spacing */
-.new-tweet span {
-  font-family: 'Source Sans 3', sans-serif; 
-  font-weight: 700; 
-  font-size: 1.2em;
-  color: white;
-}
-
 /* Tweeter Title */
 nav .title {
   font-family: 'Bungee', sans-serif; 
   font-size: 2em; 
   font-weight: bold;
+}
+
+/* in profile */
+.profile-section {
+  display: none;
+}
+
+@media screen and (min-width: 1025px) {
+  .profile-section {
+    display: block;
+    width: 30%;
+    background-color: #f4a261;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+  }
 }

@@ -1,5 +1,4 @@
-// client code
-
+// client side code
 $(document).ready(function() {
 
   // Function to create a tweet element
@@ -41,7 +40,7 @@ $(document).ready(function() {
 
     tweets.forEach(tweet => {
       const $tweetElement = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweetElement.hide().fadeIn(500)); // Smooth fade-in effect
+      $('#tweets-container').prepend($tweetElement.hide().fadeIn(500)); 
     });
   };
 
@@ -59,6 +58,18 @@ $(document).ready(function() {
       }
     });
   };
+
+  // Toggle the tweet form when clicking Write a new tweet
+  $("#compose-button").on("click", function() {
+    $(".tweet-form-container").slideToggle(300, function() {
+      if ($(this).is(":visible")) {
+        $("#tweet-text").focus(); // Auto-focus on textarea
+      }
+    });
+
+    // Rotate the down arrow icon
+    $(".nav-tweet i").toggleClass("rotate-icon");
+  });
 
   // Function to display validation errors
   const showError = function(message) {

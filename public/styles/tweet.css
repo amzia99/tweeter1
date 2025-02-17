@@ -1,12 +1,13 @@
 /* Tweet Container layout */
 .tweets-container {
-  width: 90%;
+  width: 100%;
   max-width: 600px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 15px;
   padding-bottom: 20px; 
+  align-items: center;
 }
 
 /* Individual Tweet Styling */
@@ -20,6 +21,35 @@
   background: #f4f1ec;
   transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
   word-wrap: break-word; 
+}
+
+/* tweet width on desktop */
+@media screen and (min-width: 1025px) {
+  .tweet {
+    width: 65%;
+  }
+}
+
+/* for responsive tweets */
+.tweet-actions {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+/* tweets adjust properly on mobile */
+@media screen and (max-width: 768px) {
+  .tweet {
+    width: 90%;
+    padding: 10px;
+  }
+}
+
+/* Adjust icons for smaller screens */
+@media screen and (max-width: 768px) {
+  .tweet-actions i {
+    font-size: 16px;
+  }
 }
 
 /* Tweet Hover State */
