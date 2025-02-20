@@ -45,34 +45,36 @@
       </div>
     </nav>
     
-    <!-- Header --> 
-    <header class="header">
-      <div class="avatar-container">
-        <img src="images/my-avatar.png" alt="My Avatar">
-      </div>
-      <div class="user-name">
-        <h2>Abdullah Zia</h2>
-      </div>
-    </header>  
-
     <main class="container">
-      <!-- Form ID -->
-      <section class="tweet-form-container">
-
-        <!-- Error message container  -->
-        <div class="error-message" aria-live="polite"></div>
-
-        <form id="tweet-form" action="/api/tweets" method="POST">
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea>
-          <div class="tweet-controls">
-            <button type="submit">TWEET</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+      <!-- Left column - Profile section -->
+      <div class="profile-column">
+        <header class="header">
+          <div class="avatar-container">
+            <img src="images/my-avatar.png" alt="My Avatar">
           </div>
-        </form>
-      </section>
+          <div class="user-name">
+            <h2>Abdullah Zia</h2>
+          </div>
+        </header>
+      </div>
 
-      <!-- ID for tweets -->
-      <section id="tweets-container"></section>
+      <!-- Right column for Tweet form and tweets -->
+      <div class="content-column">
+        <!-- Form section -->
+        <section class="tweet-form-container">
+          <div class="error-message" aria-live="polite"></div>
+          <form id="tweet-form" action="/api/tweets" method="POST">
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?" required></textarea>
+            <div class="tweet-controls">
+              <button type="submit">TWEET</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+
+        <!-- Tweets container -->
+        <section id="tweets-container"></section>
+      </div>
     </main>  
 
     <!-- Footer -->
