@@ -7,10 +7,11 @@
 /* Navbar */
 nav {
   height: 120px;
-  width: 100vw;
+  width: 100%;
   background-color: #4056A1;
   color: white;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0 1.5em;
   position: fixed;  
@@ -24,11 +25,15 @@ nav {
   nav {
     flex-direction: column;
     height: auto;
-    padding: 10px 0;
+    padding: 1em 0;
   }
 
   .nav-tweet {
-    margin-top: 10px;
+    margin-top: 0.5em;
+  }
+
+  nav .title {
+    margin-right: 0;
   }
 }
 
@@ -42,6 +47,19 @@ nav {
   background: transparent;
   border: none;
   padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-tweet:hover {
+  color: #ffcc00;
+}
+
+.nav-tweet i {
+  transition: transform 0.3s ease-in-out, color 0.3s ease;
+}
+
+.nav-tweet:hover i {
+  color: #ffcc00;
 }
 
 /* Tweeter Title */
@@ -49,6 +67,7 @@ nav .title {
   font-family: 'Bungee', sans-serif; 
   font-size: 2em; 
   font-weight: bold;
+  margin-right: auto;
 }
 
 /* in profile */
@@ -64,5 +83,19 @@ nav .title {
     padding: 20px;
     text-align: center;
     border-radius: 10px;
+  }
+}
+
+/* Desktop view adjustments */
+@media screen and (min-width: 1024px) {
+  nav {
+    padding: 0 2em;
+  }
+
+  .profile-section {
+    display: block;
+    width: 40%;
+    padding: 2em;
+    text-align: left;
   }
 }
