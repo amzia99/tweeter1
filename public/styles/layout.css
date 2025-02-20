@@ -29,12 +29,10 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center; 
-  min-height: calc(100vh - 160px);
   width: 90%; 
-  max-width: 800px;  
-  margin: 0 auto;  
+  max-width: 1200px;  
+  margin: 0 auto;
+  padding: 2em;
 }
 
 /*  images scale properly */
@@ -45,38 +43,28 @@ img {
 }
 
 /* 2 column layour for desktop */
-@media screen and (min-width: 1025px) {
-  .container {
-    flex-direction: row;
-    justify-content: space-between;
+@media screen and (min-width: 1024px) {
+  body {
+    padding-top: 120px;
   }
+}
+
+.container {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2em;
 }
 
 /* tweet wrapper */
 .tweet-wrapper {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
+  width: 60%;
+  margin-top: 0;
 }
 
 /* Centering tweet box */
 .new-tweet {
-  width: 100%;
-  max-width: 600px;
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px; 
-  position: relative;
-  font-size: 1.1rem;
+  margin-top: 0;
 }
 
 .bold-text {
@@ -112,15 +100,10 @@ img {
 
 /* Main container centered */
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 90%;  
-  max-width: 1200px; 
-  margin: 0 auto; 
-  min-height: calc(100vh - 160px); 
-  padding: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2em;
 }
 
 
@@ -137,13 +120,11 @@ main {
 
 /* Centered profile */
 .profile {
-  display: flex;
-  flex-direction: column;  
-  align-items: center;
-  gap: 15px;
-  padding: 20px;
-  width: 100%;
-  text-align: center;
+  width: 40%;
+  position: sticky;
+  top: 120px;
+  align-items: flex-start;
+  text-align: left;
 }
 
 /* Ensure avatar hexagon shape */
