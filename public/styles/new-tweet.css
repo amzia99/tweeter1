@@ -1,18 +1,17 @@
 /* Center and align Compose Tweet Section */
 .tweet-form-container {
-  width: 90%;
-  max-width: 600px;
-  margin: auto;
-  padding-bottom: 10px;
+  width: 100%;  /* Changed from 90% to take full width */
+  margin: 0;    /* Remove auto margin */
+  padding: 1.5em;
   background: transparent; 
   border-radius: 8px;
-  padding: 20px;
 }
 
 /* Adjust form width on desktop */
 @media screen and (min-width: 1025px) {
   .tweet-form-container {
-    width: 65%;
+    width: 100%;  /* Take full width of parent container */
+    padding: 1.5em 0;  /* Remove horizontal padding */
   }
 }
 
@@ -32,6 +31,12 @@
   padding: 10px 0;
 }
 
+/* Form styling for desktop */
+@media screen and (min-width: 1024px) {
+  .tweet-form-container form {
+    width: 100%;
+  }
+}
 
 .tweet-form-container label {
   display: none; 
@@ -40,16 +45,17 @@
 /* Make textarea full width and adjust padding */
 .tweet-form-container textarea {
   width: 100%;
-  height: 50px; 
+  height: 50px;
   font-size: 1rem;
-  padding: 8px 10px; 
+  padding: 0.5em;
   border: none;
   border-bottom: 3px solid #545149;
   background: transparent;
   outline: none;
   resize: none;
   color: #545149;
-  margin-bottom: 5px; 
+  margin-bottom: 0.5em;
+  transition: border-color 0.3s ease;  /* Add smooth transition */
 }
 
 /* Fix textarea focus border */
@@ -63,6 +69,7 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 10px;
+  margin-top: 0.5em;
 }
 
 /* Style Tweet Button */
@@ -70,12 +77,13 @@
   background-color: #4056A1;
   color: white;
   font-weight: bold;
-  padding: 8px 16px;
+  padding: 0.5em 1em;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   text-transform: uppercase;
   font-family: 'Bungee', sans-serif;
+  transition: background-color 0.3s ease;  /* Add smooth transition */
 }
 
 /* Improve button hover effect */
@@ -85,10 +93,11 @@
 
 /* Ensure counter is aligned properly */
 .tweet-controls .counter {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: bold;
   color: #545149;
   font-family: 'Bungee', sans-serif;
+  transition: color 0.3s ease;  /* Add smooth transition */
 }
 
 /* Fix Navbar Tweet Button positioning */
@@ -140,13 +149,13 @@
 
 /* Styling for the error message */
 .error-message {
-  display: none; 
+  display: none;
   color: white;
   background-color: #ff4d4d;
   border: 2px solid #cc0000;
-  padding: 10px;
+  padding: 0.75em;
   text-align: center;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 1em;
   border-radius: 5px;
 }
