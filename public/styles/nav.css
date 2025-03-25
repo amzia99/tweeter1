@@ -1,47 +1,33 @@
-/* Rotate icon when form is toggled */
-.rotate-icon {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Navbar */
+/* Navbar Styles */
 nav {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  background-color: #0064de;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1.5em;
-  position: fixed;  
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
 }
 
-/* nav for mobile */
-@media screen and (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    height: auto;
-    padding: 1em 0;
-  }
-
-  .nav-tweet {
-    margin-top: 0.5em;
-  }
-
-  nav .title {
-    margin-right: 0;
-  }
+/* Title (Tweeter) */
+nav .title {
+  font-family: 'Bungee', cursive;
+  font-size: 2em;
+  font-weight: bold;
+  margin-right: auto;
 }
 
-/* Write a new tweet dropdown */
+/* tweet block */
 .nav-tweet {
   display: flex;
   align-items: center;
-  gap: 5px; 
+  gap: 5px;
   font-size: 1.1rem;
   cursor: pointer;
   background: transparent;
@@ -55,6 +41,9 @@ nav {
 }
 
 .nav-tweet i {
+  color: red;
+  font-size: 20px;
+  animation: bounce 0.8s alternate infinite;
   transition: transform 0.3s ease-in-out, color 0.3s ease;
 }
 
@@ -62,40 +51,41 @@ nav {
   color: #ffcc00;
 }
 
-/* Tweeter Title */
-nav .title {
-  font-family: 'Bungee', sans-serif; 
-  font-size: 2em; 
-  font-weight: bold;
-  margin-right: auto;
+/* Bounce animation */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(10px); }
 }
 
-/* in profile */
-.profile-section {
-  display: none;
+/* Rotate icon when toggled via JavaScript */
+.rotate-icon {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease-in-out;
 }
 
-@media screen and (min-width: 1025px) {
-  .profile-section {
-    display: block;
-    width: 30%;
-    background-color: #f4a261;
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-  }
-}
-
-/* Desktop view adjustments */
-@media screen and (min-width: 1024px) {
+/* Mobile Layout */
+@media screen and (max-width: 768px) {
   nav {
-    padding: 0 2em;
+    flex-direction: column;
+    height: auto;
+    padding: 1em 0;
+    align-items: center;
   }
 
-  .profile-section {
-    display: block;
-    width: 40%;
-    padding: 2em;
-    text-align: left;
+  .nav-tweet {
+    margin-top: 0.5em;
+  }
+
+  nav .title {
+    margin-right: 0;
+  }
+}
+
+/* Tablet/Desktop Overrides */
+@media screen and (min-width: 768px) {
+  nav {
+    background-color: #4056A1;
+    background-image: none;
+    padding: 0 2em;
   }
 }
