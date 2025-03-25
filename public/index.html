@@ -37,8 +37,9 @@
     <!-- Navbar -->
     <nav>
       <span class="title">TWEETER</span>
-      <div>
-        <p><span class="bold-text">Write</span> <span class="light-text">a new tweet</span></p>
+      <div class="nav-tweet" id="compose-button">
+        <span class="bold-text">Write</span>
+        <span class="light-text">a new tweet</span>
         <i class="fa-solid fa-angles-down"></i>
       </div>
     </nav>
@@ -75,14 +76,21 @@
             <textarea id="tweet-area" name="text" cols="40" rows="1" required></textarea>
             <div class="form-footer">
               <button type="submit">Tweet</button>
-              <output name="counter" id="counter" for="tweet-text">140</output>
+              <output name="counter" id="counter" for="tweet-area">140</output>
             </div>
           </form>
         </section>
 
         <!-- Tweet Feed -->
         <section id="tweets-container">
-          <!-- Tweets are dynamically inserted here -->
+          <!-- Tweets will be dynamically inserted here -->
         </section>
       </div>
     </main>
+
+    <!-- Footer (Optional) -->
+    <footer>
+      <p>© 2025 Tweeter. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
