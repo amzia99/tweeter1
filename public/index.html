@@ -1,40 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Meta Information -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Info -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tweeter - Home Page</title>
 
-    <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <!-- Normalize + Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- App CSS -->
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+    <!-- App Styles -->
+    <link rel="stylesheet" href="/styles/layout.css" />
+    <link rel="stylesheet" href="/styles/nav.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
 
-    <!-- External JS -->
+    <!-- JavaScript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- App JS -->
     <script defer src="/scripts/client.js"></script>
     <script defer src="/scripts/composer-char-counter.js"></script>
-
-    <!-- timeago Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
 
   <body>
-    <!-- Navbar -->
+    <!-- Navigation -->
     <nav>
       <span class="title">TWEETER</span>
       <div class="nav-tweet" id="compose-button">
@@ -44,13 +38,13 @@
       </div>
     </nav>
 
-    <!-- Main Layout: Profile + Tweets -->
+    <!-- Main Layout -->
     <main>
       <!-- Profile Column -->
       <div class="profile">
         <header>
           <div class="avatar">
-            <img src="/images/profile-hex.png" alt="User avatar">
+            <img src="/images/profile-hex.png" alt="User avatar" />
           </div>
           <div class="name">
             <h4>Amy<a> Mansell</a></h4>
@@ -60,9 +54,8 @@
 
       <!-- Tweets Column -->
       <div class="all-things-tweet">
-        <!-- New Tweet Form -->
+        <!-- New Tweet Section -->
         <section class="new-tweet">
-
           <!-- Error Message -->
           <div class="error-msg" aria-live="polite">
             <i class="fas fa-exclamation-triangle"></i>
@@ -81,14 +74,14 @@
           </form>
         </section>
 
-        <!-- Tweet Feed -->
+        <!-- Tweets Display Section -->
         <section id="tweets-container">
-          <!-- Tweets will be dynamically inserted here -->
+          <!-- Tweets will be dynamically added here -->
         </section>
       </div>
     </main>
 
-    <!-- Footer (Optional) -->
+    <!-- Footer -->
     <footer>
       <p>© 2025 Tweeter. All rights reserved.</p>
     </footer>
