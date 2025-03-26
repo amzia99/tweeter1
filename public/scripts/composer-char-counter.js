@@ -1,16 +1,18 @@
-// DOM loading
 $(document).ready(function() {
-  // Event listener
-  $("#tweet-text").on("input", function() {
-    let maxLength = 140;
-    let currentLength = $(this).val().length;
-    let remainingChars = maxLength - currentLength;
+  const maxLength = 140;
 
-    // ✅ Ensure the counter is correctly found
-    let counterElement = $(this).closest("form").find(".counter");
-    counterElement.text(remainingChars);
+  // Listen for input changes in the tweet textarea
+  $("#tweet-area").on("input", function() {
+    const currentLength = $(this).val().length;
+    const remainingChars = maxLength - currentLength;
 
-    // ✅ Toggle red color for negative count
-    counterElement.toggleClass("invalid", remainingChars < 0);
+    // Find the counter element relative to this form
+    const counter = $(this).closest("form").find("#counter");
+
+    // Update the counter text
+    counter.text(remainingChars);
+
+    // Add or remove the 'red' class if over character limit
+    counter.toggleClass("red", remainingChars < 0);
   });
 });

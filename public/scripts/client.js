@@ -1,23 +1,32 @@
-// client side code
-$(document).ready(function() {
+/*
+ * Client-side JS logic
+ * jQuery is already loaded
+ */
 
-  // Function to create a tweet element
-  const createTweetElement = function(tweet) {
-    const { name, avatars, handle } = tweet.user; 
-    const { text } = tweet.content; 
-    const timeAgo = timeago.format(tweet.created_at); 
+$(document).ready(function () {
+  // Escape text to prevent XSS (alternate to using .text())
+  const escape = function (str) {
+    const div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
-    // Prevent XSS attacks
+  // Create a tweet element using template literals
+  const createTweetElement = function (tweet) {
+    const { name, avatars, handle } = tweet.user;
+    const { text } = tweet.content;
+    const timeAgo = timeago.format(tweet.created_at);
+
     const $tweet = $(`
       <article class="tweet">
         <header>
           <div class="user-info">
             <img src="${avatars}" alt="User Avatar">
-            <h3>${name}</h3>
+            <h3>${escape(name)}</h3>
           </div>
-          <span class="handle">${handle}</span>
+          <span class="handle">${escape(handle)}</span>
         </header>
-        <p class="tweet-content"></p> <!-- ✅ Empty paragraph -->
+        <p class="tweet-content"></p>
         <footer>
           <span class="timestamp">${timeAgo}</span>
           <div class="tweet-actions">
@@ -29,120 +38,96 @@ $(document).ready(function() {
       </article>
     `);
 
-    $tweet.find(".tweet-content").text(text); // Securely set text content
-
+    $tweet.find(".tweet-content").text(text); // Securely insert content
     return $tweet;
   };
 
-  // Function to render tweets
-  const renderTweets = function(tweets) {
-    $('#tweets-container').empty(); 
-
+  // Render array of tweets
+  const renderTweets = function (tweets) {
+    $('#tweets-container').empty();
     tweets.forEach(tweet => {
       const $tweetElement = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweetElement.hide().fadeIn(500)); 
+      $('#tweets-container').prepend($tweetElement.hide().fadeIn(400));
     });
   };
 
-  // Function to load tweets from the server
-  const loadTweets = function() {
+  // Load tweets from server
+  const loadTweets = function () {
     $.ajax({
       type: "GET",
-      url: "/api/tweets",
-      success: function(tweets) {
-        console.log("Loaded tweets:", tweets); 
+      url: "/tweets", // Change to /api/tweets if needed
+      success: function (tweets) {
         renderTweets(tweets);
       },
-      error: function(err) {
+      error: function (err) {
         console.error("Error loading tweets:", err);
       }
     });
   };
 
-  // Toggle the tweet form when clicking Write a new tweet
-  $("#compose-button").on("click", function() {
-    $(".tweet-form-container").slideToggle(300, function() {
+  // Toggle tweet form and rotate icon
+  $("#compose-button").on("click", function () {
+    $(".new-tweet").slideToggle(300, function () {
       if ($(this).is(":visible")) {
-        $("#tweet-text").focus(); // Auto-focus on textarea
+        $("#tweet-area").focus();
       }
     });
-
-    // Rotate the down arrow icon
     $(".nav-tweet i").toggleClass("rotate-icon");
   });
 
-  // Function to display validation errors
-  const showError = function(message) {
-    let $errorContainer = $(".error-message");
+  // Show error with animation
+  const showError = function (message) {
+    const $error = $(".error-msg");
+    $error.find("p").text(message);
+    $error.slideDown();
+  };
 
-    // Ensure the error container exists
-    if ($errorContainer.length === 0) {
-      $("#tweet-form").before('<div class="error-message"></div>');
-      $errorContainer = $(".error-message");
+  // Hide error message
+  const hideError = function () {
+    $(".error-msg").slideUp();
+  };
+
+  // Tweet validation
+  const validateTweet = function (text) {
+    if (!text) {
+      showError("🚨 Tweet cannot be empty!");
+      return false;
     }
-
-    // Show error with smooth animation
-    $errorContainer.text(message).slideDown();
-  };
-
-  // Function to hide errors before validation starts
-  const hideError = function() {
-    $(".error-message").slideUp();
-  };
-
-  // AJAX Form for new tweet submission
-  $("#tweet-form").on("submit", function(event) {
-    event.preventDefault(); 
-
-    // Hide error message before validation
+    if (text.length > 140) {
+      showError("🚨 Tweet exceeds 140 character limit!");
+      return false;
+    }
     hideError();
+    return true;
+  };
 
-    // Retrieve and trim form input
-    const tweetText = $("#tweet-text").val().trim();
+  // Submit handler
+  $("#tweet-submission").on("submit", function (event) {
+    event.preventDefault();
+    const tweetText = $("#tweet-area").val().trim();
 
-    // Prevent submitting empty tweets
-    if (tweetText === "") {
-      showError("🚨 Error: Tweet cannot be empty!"); 
+    if (!validateTweet(tweetText)) {
       return;
     }
 
-    // Prevent tweeting over 140 characters
-    if (tweetText.length > 140) {
-      showError("🚨 Error: Tweet exceeds 140 characters!"); 
-      return;
-    }
-
-    // Serialize form data
     const tweetData = $(this).serialize();
 
-    // Send the POST request using AJAX
     $.ajax({
       type: "POST",
-      url: "/api/tweets",
+      url: "/tweets", // Change to /api/tweets if your server requires
       data: tweetData,
-      success: function(response) {
-        console.log("Tweet submitted successfully:", response);
-
-        // Clear the textarea after submission
-        $("#tweet-text").val("");
-        $(".counter").text("140");
-
-        // Directly add the new tweet instead of fetching all again
-        const $newTweet = createTweetElement(response);
-        $('#tweets-container').prepend($newTweet.hide().fadeIn(500).addClass("new-tweet"));
-
-        // Highlight effect for new tweets
-        setTimeout(() => $newTweet.removeClass("new-tweet"), 2000);
+      success: function () {
+        $("#tweet-area").val("");
+        $("#counter").text("140");
+        loadTweets();
       },
-      error: function(err) {
+      error: function (err) {
         console.error("Error submitting tweet:", err);
       }
     });
   });
 
-  // Hide error message on page load
-  $(".error-message").hide();
-
-  // Load initial tweets when the page loads
+  // Initialize
+  hideError();
   loadTweets();
 });
