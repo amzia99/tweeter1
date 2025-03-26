@@ -2,17 +2,17 @@
 nav {
   height: 120px;
   width: 100%;
-  background-color: #0064de;
-  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
+  background-color: #4056A1;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1.5em;
+  padding: 0 2em;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  background-image: none;
 }
 
 /* Title (Tweeter) */
@@ -23,7 +23,7 @@ nav .title {
   margin-right: auto;
 }
 
-/* Tweet Toggle Section */
+/* tweet block */
 .nav-tweet {
   display: flex;
   align-items: center;
@@ -34,6 +34,7 @@ nav .title {
   border: none;
   padding: 10px;
   transition: color 0.3s ease;
+  flex-direction: column;
 }
 
 .nav-tweet:hover {
@@ -51,13 +52,13 @@ nav .title {
   color: #ffcc00;
 }
 
-/* Bounce animation for arrow */
+/* Bounce animation */
 @keyframes bounce {
   0% { transform: translateY(0); }
   100% { transform: translateY(10px); }
 }
 
-/* Rotated icon class (optional for JS toggling) */
+/* Rotate icon when toggled via JavaScript */
 .rotate-icon {
   transform: rotate(180deg);
   transition: transform 0.3s ease-in-out;
@@ -78,14 +79,5 @@ nav .title {
 
   nav .title {
     margin-right: 0;
-  }
-}
-
-/* Tablet/Desktop Overrides */
-@media screen and (min-width: 768px) {
-  nav {
-    background-color: #4056A1;
-    background-image: none;
-    padding: 0 2em;
   }
 }

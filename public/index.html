@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Meta Info -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tweeter - Home Page</title>
 
-    <!-- Normalize + Google Fonts -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet" />
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- App Styles -->
-    <link rel="stylesheet" href="/styles/layout.css" />
-    <link rel="stylesheet" href="/styles/nav.css" />
-    <link rel="stylesheet" href="/styles/header.css" />
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/styles/layout.css">
+    <link rel="stylesheet" href="/styles/nav.css">
+    <link rel="stylesheet" href="/styles/header.css">
 
-    <!-- JavaScript -->
+    <!-- JS Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
+
+    <!-- Custom JS -->
     <script defer src="/scripts/client.js"></script>
     <script defer src="/scripts/composer-char-counter.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
-
   <body>
-    <!-- Navigation -->
+    <!-- Navbar -->
     <nav>
       <span class="title">TWEETER</span>
       <div class="nav-tweet" id="compose-button">
-        <span class="bold-text">Write</span>
-        <span class="light-text">a new tweet</span>
+        <span class="bold-text">Write</span> <span class="light-text">a new tweet</span>
         <i class="fa-solid fa-angles-down"></i>
       </div>
     </nav>
@@ -44,7 +45,7 @@
       <div class="profile">
         <header>
           <div class="avatar">
-            <img src="/images/profile-hex.png" alt="User avatar" />
+            <img src="/images/profile-hex.png" alt="User avatar">
           </div>
           <div class="name">
             <h4>Amy<a> Mansell</a></h4>
@@ -52,32 +53,25 @@
         </header>
       </div>
 
-      <!-- Tweets Column -->
+      <!-- Tweet Form and Feed -->
       <div class="all-things-tweet">
-        <!-- New Tweet Section -->
         <section class="new-tweet">
-          <!-- Error Message -->
           <div class="error-msg" aria-live="polite">
             <i class="fas fa-exclamation-triangle"></i>
             <p>Please do not leave form blank or exceed arbitrary 140 character limit.</p>
             <i class="fas fa-exclamation-triangle"></i>
           </div>
-
-          <!-- Tweet Form -->
-          <form id="tweet-submission" method="POST" action="/tweets">
-            <label for="tweet-area">What are you humming about?</label>
-            <textarea id="tweet-area" name="text" cols="40" rows="1" required></textarea>
+          <form id="tweet-form" method="POST" action="/tweets">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea id="tweet-text" name="text" required></textarea>
             <div class="form-footer">
-              <button type="submit">Tweet</button>
-              <output name="counter" id="counter" for="tweet-area">140</output>
+              <button type="submit">TWEET</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
             </div>
           </form>
         </section>
 
-        <!-- Tweets Display Section -->
-        <section id="tweets-container">
-          <!-- Tweets will be dynamically added here -->
-        </section>
+        <section id="tweets-container"></section>
       </div>
     </main>
 

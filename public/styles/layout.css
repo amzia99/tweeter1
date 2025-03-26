@@ -4,19 +4,21 @@
  * Do not modify these two selectors, please
  */
  /* Global Reset */
-html {
+ html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-/* Global Layout */
+/* Global layout */
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 main {
@@ -26,7 +28,7 @@ main {
   margin-top: 30px;
 }
 
-/* Responsive 2-column layout */
+/* Two-column layout on desktop */
 @media only screen and (min-width: 768px) {
   main {
     display: flex;
@@ -42,7 +44,7 @@ main {
   }
 }
 
-/* Left profile column */
+/* Profile styling */
 .profile {
   width: 40%;
   position: sticky;
@@ -58,7 +60,7 @@ main {
   object-fit: cover;
 }
 
-/* Tweet form section */
+/* Tweet form styles */
 .new-tweet {
   display: flex;
   flex-direction: column;
@@ -82,6 +84,7 @@ main {
   border: none;
   border-bottom: solid 3px;
   font-size: 15px;
+  width: auto;
   min-height: 30px;
   resize: none;
   outline: none;
@@ -91,7 +94,7 @@ textarea:focus {
   border-bottom: 3px solid #000;
 }
 
-/* Submit form footer */
+/* Form footer with button and counter */
 .form-footer {
   display: flex;
   justify-content: space-between;
@@ -120,29 +123,12 @@ textarea:focus {
   min-width: 50px;
 }
 
-.counter.red {
+.counter.red,
+.counter.invalid {
   color: red;
 }
 
-/* Error message box */
-.error-msg {
-  border: 5px solid red;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  text-align: left;
-  margin: 30px;
-  padding: 20px;
-  color: red;
-  font-weight: lighter;
-}
-
-.error-msg p {
-  padding: 0 5px;
-}
-
-/* Tweet display cards */
+/* Tweet box styles */
 .posted-tweet {
   border: black 3px solid;
   margin-top: 50px;
@@ -200,11 +186,22 @@ textarea:focus {
   color: goldenrod;
 }
 
-/* Universal image style */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+/* Error message box */
+.error-msg {
+  border: 5px solid red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  text-align: left;
+  margin: 30px;
+  padding: 20px;
+  color: red;
+  font-weight: lighter;
+}
+
+.error-msg p {
+  padding: 0 5px;
 }
 
 /* Footer */
@@ -213,6 +210,13 @@ footer {
   justify-content: space-between;
   font-size: 10px;
   padding-bottom: 10px;
+}
+
+/* Image handling */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 

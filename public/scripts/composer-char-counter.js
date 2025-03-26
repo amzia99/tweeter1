@@ -1,18 +1,22 @@
-$(document).ready(function() {
-  const maxLength = 140;
+// Character counter logic
+$(document).ready(function () {
+  const MAX_CHAR = 140;
 
-  // Listen for input changes in the tweet textarea
-  $("#tweet-area").on("input", function() {
-    const currentLength = $(this).val().length;
-    const remainingChars = maxLength - currentLength;
+  $("#tweet-text").on("input", function () {
+    const inputLength = $(this).val().length;
+    const remaining = MAX_CHAR - inputLength;
 
-    // Find the counter element relative to this form
-    const counter = $(this).closest("form").find("#counter");
+    // Find the nearest counter element
+    const $counter = $(this).closest("form").find(".counter");
 
-    // Update the counter text
-    counter.text(remainingChars);
+    // Update counter display
+    $counter.text(remaining);
 
-    // Add or remove the 'red' class if over character limit
-    counter.toggleClass("red", remainingChars < 0);
+    // Toggle red color when over the limit
+    if (remaining < 0) {
+      $counter.addClass("red");
+    } else {
+      $counter.removeClass("red");
+    }
   });
 });
