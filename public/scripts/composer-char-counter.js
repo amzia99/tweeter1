@@ -1,22 +1,21 @@
 // Character counter logic
-$(document).ready(function () {
-  const MAX_CHAR = 140;
+$(document).ready(function() {
+  // --- our code goes here ---
+ const maxLength = 140;
+ const tweetArea = $('#tweet-area');
+ const counter = $('#counter');
 
-  $("#tweet-text").on("input", function () {
-    const inputLength = $(this).val().length;
-    const remaining = MAX_CHAR - inputLength;
+ $(tweetArea).on('input', function() {
+   const characters = $(this).val().length;
+   let remainingChars = maxLength - characters;
+   counter.text(remainingChars);
+   if (remainingChars < 0) {
+     counter.addClass("red");
+   } else {
+     counter.removeClass("red");
+   }
+   
+ });
 
-    // Find the nearest counter element
-    const $counter = $(this).closest("form").find(".counter");
-
-    // Update counter display
-    $counter.text(remaining);
-
-    // Toggle red color when over the limit
-    if (remaining < 0) {
-      $counter.addClass("red");
-    } else {
-      $counter.removeClass("red");
-    }
-  });
+ 
 });

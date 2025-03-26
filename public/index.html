@@ -1,83 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
-    <!-- Normalize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
-    <!-- Google Fonts -->
+    <!-- Font Placement -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- Nav CSS -->
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
+
+    <!-- Header CSS -->
+    <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+
+    <!-- External JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/scripts/client.js"></script>
+
+    <!-- Composer JS -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="/styles/layout.css">
-    <link rel="stylesheet" href="/styles/nav.css">
-    <link rel="stylesheet" href="/styles/header.css">
+     <!-- timeago Library -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- JS Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js"></script>
-
-    <!-- Custom JS -->
-    <script defer src="/scripts/client.js"></script>
-    <script defer src="/scripts/composer-char-counter.js"></script>
   </head>
+
   <body>
-    <!-- Navbar -->
+<!-- NAV menu -->
     <nav>
-      <span class="title">TWEETER</span>
-      <div class="nav-tweet" id="compose-button">
-        <span class="bold-text">Write</span> <span class="light-text">a new tweet</span>
-        <i class="fa-solid fa-angles-down"></i>
+      <span>tweeter</span>
+      <div>
+        <p><a>Write</a> a new tweet</p>
+        <i class="fas fa-angle-double-down"></i>
       </div>
     </nav>
 
-    <!-- Main Layout -->
     <main>
-      <!-- Profile Column -->
-      <div class="profile">
-        <header>
-          <div class="avatar">
-            <img src="/images/profile-hex.png" alt="User avatar">
-          </div>
-          <div class="name">
-            <h4>Amy<a> Mansell</a></h4>
-          </div>
-        </header>
+<!-- HEADER profile --> 
+    <header>
+      <div class="avatar">
+          <img src="/images/profile-hex.png"> 
       </div>
+      <div class="name">
+          <h4>Jane<a> Doe</a></h4>
+      </div>
+    </header>
 
-      <!-- Tweet Form and Feed -->
       <div class="all-things-tweet">
+        
         <section class="new-tweet">
-          <div class="error-msg" aria-live="polite">
+
+          <div class="error-msg">
             <i class="fas fa-exclamation-triangle"></i>
-            <p>Please do not leave form blank or exceed arbitrary 140 character limit.</p>
+            <p> No empty Tweets! Tweet's can't exceed more than 140 characters </p>
             <i class="fas fa-exclamation-triangle"></i>
           </div>
-          <form id="tweet-form" method="POST" action="/tweets">
+<!--CREATE NEW TWEET FORM-->
+          <form id="tweet-submission" method="POST" action="/tweets">
             <label for="tweet-text">What are you humming about?</label>
-            <textarea id="tweet-text" name="text" required></textarea>
+            <textarea id="tweet-area" name="text" cols="40" rows="1"></textarea>
             <div class="form-footer">
-              <button type="submit">TWEET</button>
-              <output name="counter" class="counter" for="tweet-text">140</output>
+              <button type="submit">Tweet</button>
+              <output name="counter" id="counter" for="tweet-text">140</output>
             </div>
           </form>
+  
         </section>
-
-        <section id="tweets-container"></section>
+<!-- ALL POSTED TWEETS -->
+        <section id="tweets-container">
+        </section>
       </div>
     </main>
-
-    <!-- Footer -->
-    <footer>
-      <p>© 2025 Tweeter. All rights reserved.</p>
-    </footer>
   </body>
 </html>

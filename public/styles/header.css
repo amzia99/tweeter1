@@ -1,67 +1,44 @@
-/* Header container */
 header {
   height: 400px;
   width: 100%;
   background-color: #0064de;
   background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  text-align: center;
 }
 
-/* Avatar hexagon styling */
-header .avatar {
-  width: 150px;
-  height: 150px;
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  background-color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-header .avatar img {
-  width: 90%;
+header div .avatar {
   height: auto;
-  object-fit: contain;
+  width: 150px;
 }
 
-/* Name and handle styling */
-header .name {
+header div img {
+  width: 150px;
+  margin-top: 30px;
+}
+
+header div h4 {
   color: white;
-  font-size: 1.5em;
-  font-family: 'Source Sans Pro', sans-serif;
-  display: flex;
-  gap: 5px;
-  align-items: baseline;
+  margin: auto;
 }
 
-header .name h4 {
-  font-weight: bold;
-  margin: 0;
+header div a {
+  font-weight: lighter;
 }
 
-header .name a {
-  font-weight: 300;
-  color: white;
-  text-decoration: none;
-}
-
-/* Tablet and desktop layout */
+/* Tablet Styles */
 @media only screen and (min-width: 768px) {
   header {
-    height: 225px;
-    width: 33.3vw;
-    margin-right: 50px;
-    margin-top: 70px;
-    flex-shrink: 0;
+   height: 225px;
+   width: 33.3vw;
+   margin-right: 50px;
+   margin-top: 70px;
   }
 
   header .name {
     padding-bottom: 20px;
   }
+  
 }

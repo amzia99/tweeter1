@@ -1,14 +1,14 @@
 "use strict";
 
-const userHelper = require("../lib/util/user-helper");
+const userHelper    = require("../lib/util/user-helper")
 
-const express = require('express');
-const tweetsRoutes = express.Router();
+const express       = require('express');
+const tweetsRoutes  = express.Router();
 
-module.exports = (dataHelpers) => {
+module.exports = function(DataHelpers) {
 
-  tweetsRoutes.get("/", (req, res) => {
-    dataHelpers.getTweets((err, tweets) => {
+  tweetsRoutes.get("/", function(req, res) {
+    DataHelpers.getTweets((err, tweets) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
@@ -17,9 +17,9 @@ module.exports = (dataHelpers) => {
     });
   });
 
-  tweetsRoutes.post("/", (req, res) => {
+  tweetsRoutes.post("/", function(req, res) {
     if (!req.body.text) {
-      res.status(400).json({ error: 'invalid request: no data in POST body' });
+      res.status(400).json({ error: 'invalid request: no data in POST body'});
       return;
     }
 
@@ -32,15 +32,15 @@ module.exports = (dataHelpers) => {
       created_at: Date.now()
     };
 
-    dataHelpers.saveTweet(tweet, (err) => {
+    DataHelpers.saveTweet(tweet, (err) => {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.status(201).send(tweet);
+        res.status(201).send();
       }
     });
   });
 
   return tweetsRoutes;
 
-};
+}

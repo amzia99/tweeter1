@@ -3,124 +3,90 @@
  * jQuery is already loaded
  */
 
-$(document).ready(function () {
-  const MAX_LENGTH = 140;
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
-  // Escape input to prevent XSS
-  const escape = function (str) {
-    let div = document.createElement("div");
-    div.appendChild(document.createTextNode(str));
-    return div.innerHTML;
-  };
+//Generates html layout for each tweet
+function createTweetElement(tweetObject) {
+    const {user, content, created_at} = tweetObject;
+    const contentText = escape(content.text)
 
-  // Generate tweet HTML from object
-  const createTweetElement = function (tweet) {
-    const { name, avatars, handle } = tweet.user;
-    const { text } = tweet.content;
-    const timeAgo = timeago.format(tweet.created_at);
+    const tweet = `<article class="posted-tweet">
+                    <div class="tweet-header">
+                      <div class="tweet-header-left">
+                        <img class = "tweet-header-avatar" src="${user.avatars}" alt="user avatar"/>
+                        <span>${user.name}</span>
+                      </div>              
+                      <p><a href="#">${user.handle}</a></p>
+                    </div>
+                    <h4>${contentText}</h4>
+                    <div class="tweet-footer">
+                      <span>${timeago.format(new Date())}</span>
+                      <div class="tweet-icons">              
+                        <i class="fas fa-flag"></i>
+                        <i class="fas fa-retweet"></i>
+                        <i class="fas fa-heart"></i>
+                      </div>
+                    </div>
+                  </article>`
+    return tweet
+}
 
-    const safeText = escape(text);
+$(document).ready(function() {
+  $(".error-msg").hide();
 
-    return $(
-      `<article class="posted-tweet">
-        <div class="tweet-header">
-          <div class="tweet-header-left">
-            <img class="tweet-header-avatar" src="${avatars}" alt="User avatar"/>
-            <span>${name}</span>
-          </div>
-          <p><a href="#">${handle}</a></p>
-        </div>
-        <h4>${safeText}</h4>
-        <div class="tweet-footer">
-          <span>${timeAgo}</span>
-          <div class="tweet-icons">
-            <i class="fas fa-flag"></i>
-            <i class="fas fa-retweet"></i>
-            <i class="fas fa-heart"></i>
-          </div>
-        </div>
-      </article>`
-    );
-  };
-
-  // Render all tweets
-  const renderTweets = function (tweets) {
-    $('#tweets-container').empty();
-    for (const tweet of tweets) {
-      const $tweet = createTweetElement(tweet);
-      $('#tweets-container').prepend($tweet);
+  //Renders tweets that are submitted to the page
+  function renderTweets(tweetsData) {
+    for (let tweet of tweetsData) {
+      const postedTweet = createTweetElement(tweet);
+      $("#tweets-container").append(postedTweet);
     }
-  };
-
-  // Load tweets from server
-  const loadTweets = function () {
-    $.ajax({
-      type: 'GET',
-      url: '/tweets',
-      success: function (tweets) {
-        renderTweets(tweets);
-      },
-      error: function (err) {
-        console.error("Error loading tweets:", err);
-      }
-    });
-  };
-
-  // Show error message
-  const showError = function (message) {
-    const $errorBox = $(".error-msg");
-    $errorBox.text(message).slideDown();
-  };
-
-  // Hide error
-  const hideError = function () {
-    $(".error-msg").slideUp();
-  };
-
-  // Form submission handler
-  $('#tweet-submission').on('submit', function (event) {
-    event.preventDefault();
-    hideError();
-
-    const tweetText = $('#tweet-area').val().trim();
-
+  }
+  
+  //Error handling for incorrect form submissions
+  function tweetValidation(tweetText) {
     if (!tweetText) {
-      return showError("⚠️ Tweet cannot be empty!");
+      $(".error-msg").slideDown();
+    } else if (tweetText.length > 140) {
+      $(".error-msg").slideDown();
+    } else {
+      $(".error-msg").hide();
+      return true
     }
+  }
 
-    if (tweetText.length > MAX_LENGTH) {
-      return showError("⚠️ Tweet exceeds 140 characters!");
+//Ajax request in form submission to load tweet asynchronously 
+  $("form").submit(function(event) {
+    event.preventDefault();
+    const tweet = $("#tweet-area").val();
+    const isValid = tweetValidation(tweet);
+    if (isValid) {
+      const query = $(this).serialize();
+      $.post("/tweets", query).then(function(res){
+         console.log(res, "Response is working");
+         loadTweets();
+      });
     }
+    
+  })
 
-    const formData = $(this).serialize();
-
-    $.ajax({
-      type: 'POST',
-      url: '/tweets',
-      data: formData,
-      success: function () {
-        $('#tweet-area').val('');
-        $('#counter').text(MAX_LENGTH);
-        loadTweets();
-      },
-      error: function (err) {
-        console.error("Error submitting tweet:", err);
-      }
+//renders tweets from JSON in /tweets url
+  function loadTweets() {
+    $.getJSON("/tweets", {}, function(res) {
+      $(".posted-tweet").remove();
+      renderTweets(res.reverse());
+      $("#tweet-area").val("");
+      console.log("GET request successfull!");
+    }).done(function() {
+      $('#tweet-area').val('');
+      $('#counter').html(140);
+      $('#error-msg').slideUp();
+      $(".submit-tweet").trigger("reset");
     });
-  });
-
-  // Toggle compose form visibility
-  $('#compose-button').on('click', function () {
-    $('.new-tweet').slideToggle(300, function () {
-      if ($(this).is(':visible')) {
-        $('#tweet-area').focus();
-      }
-    });
-    $('.nav-tweet i').toggleClass('rotate-icon');
-  });
-
-  // Initial state
-  $('.error-msg').hide();
+  }
   loadTweets();
-});
 
+});

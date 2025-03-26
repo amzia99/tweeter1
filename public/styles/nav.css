@@ -1,83 +1,54 @@
-/* Navbar Styles */
 nav {
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  background-color: #0064de;
+  background-image: url("https://www.transparenttextures.com/patterns/brushed-alum.png");
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 2em;
   position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-  background-image: none;
 }
 
-/* Title (Tweeter) */
-nav .title {
+nav span {
   font-family: 'Bungee', cursive;
-  font-size: 2em;
-  font-weight: bold;
-  margin-right: auto;
+  padding: 1.5em;
 }
 
-/* tweet block */
-.nav-tweet {
+nav div {
+  padding: 30px;
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 1.1rem;
-  cursor: pointer;
-  background: transparent;
-  border: none;
-  padding: 10px;
-  transition: color 0.3s ease;
   flex-direction: column;
 }
 
-.nav-tweet:hover {
-  color: #ffcc00;
-}
-
-.nav-tweet i {
-  color: red;
-  font-size: 20px;
-  animation: bounce 0.8s alternate infinite;
-  transition: transform 0.3s ease-in-out, color 0.3s ease;
-}
-
-.nav-tweet:hover i {
-  color: #ffcc00;
-}
-
-/* Bounce animation */
 @keyframes bounce {
   0% { transform: translateY(0); }
   100% { transform: translateY(10px); }
 }
 
-/* Rotate icon when toggled via JavaScript */
-.rotate-icon {
-  transform: rotate(180deg);
-  transition: transform 0.3s ease-in-out;
+nav div .fas {
+  color: red;
+  font-size: 20px;
+  animation: bounce 0.8s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
 }
 
-/* Mobile Layout */
-@media screen and (max-width: 768px) {
+nav p {
+  font-size: 20px;
+  margin: 1.5em;
+  margin: 5px;
+}
+
+nav p a {
+  font-weight: bold;
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 768px)  {
   nav {
-    flex-direction: column;
-    height: auto;
-    padding: 1em 0;
-    align-items: center;
-  }
-
-  .nav-tweet {
-    margin-top: 0.5em;
-  }
-
-  nav .title {
-    margin-right: 0;
+    background-color: #4056A1;
+    background-image: none;
+    position: fixed;
   }
 }

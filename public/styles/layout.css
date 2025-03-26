@@ -11,128 +11,115 @@
   box-sizing: inherit;
 }
 
-/* Global layout */
+
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
-main {
+ main {
   width: 100%;
+  margin-top: 30px;
   margin: auto;
   background-color: #f4f1ec;
+ }
+
+ .all-things-tweet {
+   width: 90%;
+   margin: auto;
+ }
+
+ /* All new tweet styling: */
+ .new-tweet form label {
+  font-size: 20px;
+  font-weight: bold;
   margin-top: 30px;
 }
 
-/* Two-column layout on desktop */
-@media only screen and (min-width: 768px) {
-  main {
-    display: flex;
-    flex-direction: row;
-    padding: 35px;
-    padding-top: 125px;
-  }
-
-  .all-things-tweet {
-    width: 66.7vw;
-    margin-top: 40px;
-    margin-left: 50px;
-  }
+.new-tweet form textarea {
+  background-color: #f4f1ec;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: solid 3px;
+  columns: 80;
+  font-size: 15px;
+  width: auto;
+  min-height: 30px;
 }
 
-/* Profile styling */
-.profile {
-  width: 40%;
-  position: sticky;
-  top: 120px;
-  text-align: left;
-  align-items: flex-start;
-}
 
-.profile img {
-  width: 80px;
-  height: 80px;
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  object-fit: cover;
-}
-
-/* Tweet form styles */
 .new-tweet {
-  display: flex;
-  flex-direction: column;
-  margin-top: 0;
-}
-
-.new-tweet form {
   display: flex;
   flex-direction: column;
 }
 
 .new-tweet label {
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 30px;
   margin-right: auto;
 }
 
-.new-tweet form textarea {
-  background-color: #f4f1ec;
-  border: none;
-  border-bottom: solid 3px;
-  font-size: 15px;
-  width: auto;
-  min-height: 30px;
-  resize: none;
-  outline: none;
+form {
+  display: flex;
+  flex-direction: column;
 }
 
-textarea:focus {
-  border-bottom: 3px solid #000;
-}
-
-/* Form footer with button and counter */
 .form-footer {
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
 }
 
+textarea {
+  border: none;
+  outline: none;
+  resize: none;
+}
+
 .form-footer button {
   font-size: small;
   color: white;
-  font-family: 'Bungee', cursive;
+  font-family:  'Bungee', cursive;
   border: none;
   padding: 5px;
   background-color: #4056A1;
 }
 
-.form-footer button:hover {
-  background-color: #e6b800;
+.form-footer output {
+  font-size: medium;
+  font-family:  'Bungee', cursive;
 }
 
-.form-footer output,
-.counter {
-  font-size: 16px;
-  font-family: 'Bungee', cursive;
-  color: #545149;
-  text-align: right;
-  min-width: 50px;
-}
-
-.counter.red,
-.counter.invalid {
+#counter.red {
   color: red;
 }
 
-/* Tweet box styles */
+/* Error message styling */
+.error-msg {
+  border: 5px solid red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  text-align: left;
+  margin: 30px;
+  padding: 20px;
+  color: red;
+  font-weight: lighter;
+}
+
+.error-msg p {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+/* All Posted tweets stylings: */
 .posted-tweet {
   border: black 3px solid;
   margin-top: 50px;
-  padding: 10px 20px;
+  padding: 10px 20px 10px 20px;
 }
 
 .posted-tweet:hover {
@@ -153,10 +140,10 @@ textarea:focus {
 }
 
 .tweet-header a {
+  align-self: flex-start;
   text-decoration: none;
   color: rgba(136, 136, 136, 0.678);
   font-weight: 500;
-  align-self: flex-start;
 }
 
 .tweet-header-avatar {
@@ -169,6 +156,7 @@ textarea:focus {
   border-bottom: 3px solid black;
   margin-bottom: 5px;
 }
+
 
 .tweet-footer {
   display: flex;
@@ -186,37 +174,19 @@ textarea:focus {
   color: goldenrod;
 }
 
-/* Error message box */
-.error-msg {
-  border: 5px solid red;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  text-align: left;
-  margin: 30px;
-  padding: 20px;
-  color: red;
-  font-weight: lighter;
-}
 
-.error-msg p {
-  padding: 0 5px;
-}
-
-/* Footer */
-footer {
-  display: flex;
-  justify-content: space-between;
-  font-size: 10px;
-  padding-bottom: 10px;
-}
-
-/* Image handling */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+@media only screen and (min-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: row;
+    padding: 35px;
+    padding-top: 125px;
+  }
+  .all-things-tweet {
+    width: 66.7vw;
+    margin-top: 40px;
+    margin-left: 50px;
+  }
 }
 
 
