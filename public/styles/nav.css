@@ -23,7 +23,7 @@ nav .title {
   margin-right: auto;
 }
 
-/* tweet block */
+/* Tweet Toggle Section */
 .nav-tweet {
   display: flex;
   align-items: center;
@@ -51,13 +51,13 @@ nav .title {
   color: #ffcc00;
 }
 
-/* Bounce animation */
+/* Bounce animation for arrow */
 @keyframes bounce {
   0% { transform: translateY(0); }
   100% { transform: translateY(10px); }
 }
 
-/* Rotate icon when toggled via JavaScript */
+/* Rotated icon class (optional for JS toggling) */
 .rotate-icon {
   transform: rotate(180deg);
   transition: transform 0.3s ease-in-out;

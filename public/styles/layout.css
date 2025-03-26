@@ -3,14 +3,15 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
- html {
+ /* Global Reset */
+html {
   box-sizing: border-box;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-/* Global layout */
+/* Global Layout */
 body {
   color: #545149;
   background-color: #f4f1ec;
@@ -25,7 +26,7 @@ main {
   margin-top: 30px;
 }
 
-/* Two-column layout on desktop */
+/* Responsive 2-column layout */
 @media only screen and (min-width: 768px) {
   main {
     display: flex;
@@ -41,7 +42,7 @@ main {
   }
 }
 
-/* Profile styling */
+/* Left profile column */
 .profile {
   width: 40%;
   position: sticky;
@@ -57,7 +58,7 @@ main {
   object-fit: cover;
 }
 
-/* Tweet form styles */
+/* Tweet form section */
 .new-tweet {
   display: flex;
   flex-direction: column;
@@ -81,7 +82,6 @@ main {
   border: none;
   border-bottom: solid 3px;
   font-size: 15px;
-  width: auto;
   min-height: 30px;
   resize: none;
   outline: none;
@@ -91,7 +91,7 @@ textarea:focus {
   border-bottom: 3px solid #000;
 }
 
-/* Form footer with button and counter */
+/* Submit form footer */
 .form-footer {
   display: flex;
   justify-content: space-between;
@@ -124,7 +124,25 @@ textarea:focus {
   color: red;
 }
 
-/* Tweet box styles */
+/* Error message box */
+.error-msg {
+  border: 5px solid red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  text-align: left;
+  margin: 30px;
+  padding: 20px;
+  color: red;
+  font-weight: lighter;
+}
+
+.error-msg p {
+  padding: 0 5px;
+}
+
+/* Tweet display cards */
 .posted-tweet {
   border: black 3px solid;
   margin-top: 50px;
@@ -182,22 +200,11 @@ textarea:focus {
   color: goldenrod;
 }
 
-/* Error message box */
-.error-msg {
-  border: 5px solid red;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: row;
-  text-align: left;
-  margin: 30px;
-  padding: 20px;
-  color: red;
-  font-weight: lighter;
-}
-
-.error-msg p {
-  padding: 0 5px;
+/* Universal image style */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Footer */
@@ -206,13 +213,6 @@ footer {
   justify-content: space-between;
   font-size: 10px;
   padding-bottom: 10px;
-}
-
-/* Image handling */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
 
