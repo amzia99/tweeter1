@@ -24,7 +24,7 @@ function createTweetElement(tweetObject) {
                     </div>
                     <h4>${contentText}</h4>
                     <div class="tweet-footer">
-                      <span>${timeago.format(new Date())}</span>
+                      <span>${timeago.format(created_at)}</span>
                       <div class="tweet-icons">              
                         <i class="fas fa-flag"></i>
                         <i class="fas fa-retweet"></i>
@@ -65,7 +65,7 @@ $(document).ready(function() {
     const isValid = tweetValidation(tweet);
     if (isValid) {
       const query = $(this).serialize();
-      $.post("/tweets", query).then(function(res){
+      $.post("/api/tweets", query).then(function(res){
          console.log(res, "Response is working");
          loadTweets();
       });
@@ -75,8 +75,8 @@ $(document).ready(function() {
 
 //renders tweets from JSON in /tweets url
   function loadTweets() {
-    $.getJSON("/tweets", {}, function(res) {
-      $(".posted-tweet").remove();
+    $.getJSON("/api/tweets", {}, function(res) {
+      $('#tweets-container').empty();
       renderTweets(res.reverse());
       $("#tweet-area").val("");
       console.log("GET request successfull!");

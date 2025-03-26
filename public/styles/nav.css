@@ -6,21 +6,38 @@ nav {
   color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 1.5em;
+  z-index: 1000;
 }
 
 nav span {
   font-family: 'Bungee', cursive;
-  padding: 1.5em;
+  font-size: 2em;
 }
 
+/* Right side (Write a new tweet + icon) */
 nav div {
   padding: 30px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  cursor: pointer;
+  transition: color 0.3s ease;
 }
 
+nav div:hover {
+  color: #ffcc00;
+}
+
+nav div:hover .fas {
+  color: #ffcc00;
+}
+
+/* Bounce animation for arrow icon */
 @keyframes bounce {
   0% { transform: translateY(0); }
   100% { transform: translateY(10px); }
@@ -29,26 +46,24 @@ nav div {
 nav div .fas {
   color: red;
   font-size: 20px;
-  animation: bounce 0.8s;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
+  animation: bounce 0.8s alternate infinite;
+  transition: color 0.3s ease;
 }
 
 nav p {
   font-size: 20px;
-  margin: 1.5em;
   margin: 5px;
 }
 
 nav p a {
   font-weight: bold;
+  text-decoration: none;
 }
 
 /* Tablet Styles */
-@media only screen and (min-width: 768px)  {
+@media only screen and (min-width: 768px) {
   nav {
     background-color: #4056A1;
     background-image: none;
-    position: fixed;
   }
 }
