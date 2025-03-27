@@ -39,7 +39,7 @@
   </head>
 
   <body>
-<!-- NAV menu -->
+<!-- nav -->
     <nav>
       <span>tweeter</span>
       <div>
@@ -49,7 +49,7 @@
     </nav>
 
     <main>
-<!-- HEADER profile --> 
+<!-- header profile -->
     <header>
       <div class="avatar">
           <img src="/images/profile-hex.png"> 
@@ -68,18 +68,18 @@
             <p> No empty Tweets! Tweet's can't exceed more than 140 characters </p>
             <i class="fas fa-exclamation-triangle"></i>
           </div>
-<!--CREATE NEW TWEET FORM-->
-          <form id="tweet-submission" method="POST" action="/tweets">
-            <label for="tweet-text">What are you humming about?</label>
-            <textarea id="tweet-area" name="text" cols="40" rows="1"></textarea>
-            <div class="form-footer">
-              <button type="submit">Tweet</button>
-              <output name="counter" id="counter" for="tweet-text">140</output>
-            </div>
-          </form>
+<!-- new tweet form -->
+      <form id="tweet-submission" method="POST" action="/tweets">
+     <label for="tweet-text">What are you humming about?</label>
+      <textarea id="tweet-area" name="text" cols="40" rows="1"></textarea>
+      <div class="form-footer">
+       <button type="submit">Tweet</button>
+      <output name="counter" id="counter" for="tweet-text">140</output>
+        </div>
+      </form>
   
         </section>
-<!-- ALL POSTED TWEETS -->
+<!--  posted tweets -->
         <section id="tweets-container">
         </section>
       </div>

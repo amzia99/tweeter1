@@ -19,7 +19,7 @@ nav span {
   font-size: 2em;
 }
 
-/* Right side (Write a new tweet + icon) */
+/* Right side */
 nav div {
   padding: 30px;
   display: flex;
@@ -37,7 +37,7 @@ nav div:hover .fas {
   color: #ffcc00;
 }
 
-/* Bounce animation for arrow icon */
+/* Bounce animation */
 @keyframes bounce {
   0% { transform: translateY(0); }
   100% { transform: translateY(10px); }
@@ -60,7 +60,7 @@ nav p a {
   text-decoration: none;
 }
 
-/* Tablet Styles */
+/*  Styles */
 @media only screen and (min-width: 768px) {
   nav {
     background-color: #4056A1;

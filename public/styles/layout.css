@@ -31,7 +31,7 @@ body {
    margin: auto;
  }
 
- /* All new tweet styling: */
+ /* new tweet styling */
  .new-tweet form label {
   font-size: 20px;
   font-weight: bold;
@@ -103,7 +103,7 @@ textarea {
   color: red;
 }
 
-/* Error message styling */
+/* Error message  */
 .error-msg {
   border: 5px solid red;
   display: flex;
@@ -123,7 +123,7 @@ textarea {
 }
 
 
-/* All Posted tweets stylings: */
+/* Posted tweets : */
 .posted-tweet {
   border: black 3px solid;
   margin-top: 50px;

@@ -1,3 +1,4 @@
+/* Header */
 header {
   height: 400px;
   width: 100%;
@@ -28,7 +29,7 @@ header div a {
   font-weight: lighter;
 }
 
-/* Tablet Styles */
+/* Window sizing */
 @media only screen and (min-width: 768px) {
   header {
    height: 225px;
