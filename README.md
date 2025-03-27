@@ -20,11 +20,10 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Screenshots
-![Tweeter1](home/labber/lighthouse/tweeter1/docs/Tweeter1.PNG)
-![Tweeter2](home/labber/lighthouse/tweeter1/docs/Tweeter2.PNG)
-![Tweeter3](home/labber/lighthouse/tweeter1/docs/Tweeter3.PNG)
-![Tweeter4](home/labber/lighthouse/tweeter1/docs/Tweeter4.PNG)
-
+![Tweeter1](https://github.com/user-attachments/assets/1ca8e873-2f4d-425f-97e1-24fdb3de1140)
+![Tweeter2](https://github.com/user-attachments/assets/308cd537-af07-4706-b87b-9004b8c116fc)
+![Tweeter3](https://github.com/user-attachments/assets/62282687-9a49-4cee-b599-bbf95bcdd798)
+![Tweeter4](https://github.com/user-attachments/assets/b101815d-9e71-47fc-8e9a-88d7a3a8a0a9)
 
 ## Technologies Used 
 - HTML, CSS, JavaScript, jQuery
